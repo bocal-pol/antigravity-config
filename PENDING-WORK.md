@@ -1,65 +1,63 @@
-# Pending work — skills batch 4 (`feature/port-skills-4`)
+# Pending work — skills batch A (`feature/port-skills-wt1`)
 
-Out of 51 assigned skills, **5 ported** before this fork ran out of usable context budget for a
-faithful, individually-reviewed translation:
+Out of 41 assigned skills, **12 ported** before this fork paused to conserve context budget for
+accurate, individually-reviewed translation:
 
-- `friction-retro` (renamed from `retro`)
-- `script-helper`
-- `silent-failure-hunter`
-- `software-deploy`
-- `switch-audit`
+ai-agent-security, ai-product-engineer, analyst, analytics-engineer, angular-developer, animate,
+api-finder (+ `references/public-apis.md`), app-spec, appsec, ar-vr-developer, architect,
+backend-updater
 
-## Remaining 46 skills, not yet ported
+## Remaining 29 skills, not yet ported
 
-refacto, rpa-developer, scrum-master, sdd-converge, sdd-plan, sdd-specify, sdd-tasks,
-security-architect, security-audit, semgrep, seo-geo, service-designer, sre, strix,
-strudel-patterns, sysadmin, szikra-bisociation, szikra-boucle-retour, szikra-incubation,
-szikra-lifecycle, szikra-securite-psy, szikra-slow-hunch, szikra-zettelkasten, task-tracker, taste,
-**team-dev** (1362 lines — the root orchestrator skill, largest and most critical in the whole
-repo), **team-selector** (333 lines), tech-lead, tech-translator, tech-writer, technical-artist,
-threat-intelligence, threejs-3d, training-specialist, unlazy, user-call, ux-designer, ux-researcher,
-ux-writer, version-checker, version-updater, visiteurs, vulnerability-management, web-search,
-web-vanilla, windows-admin
+bi-developer, blockchain, bon-commande, brag, brand-brief, budget-plan, bug-validator,
+bulletin-analyser, bulletin-service, cadrage, cahier-charges, changelog, ci-scan,
+claude-code-audit, cloud-architect, cloud-engineer, cloud-security, code-reviewer,
+comment-analyzer, compliance-officer, compostel-food, compostel-gear, compostel-lodging,
+compostel-planner, compostel-poi, compostel-prep, compostel-route, computer-vision,
+data-engineer
 
-## Why this batch stopped short
+## Why this batch paused
 
-This batch's total source content is ~12,400 lines across 51 files, including several very large
-ones (`team-dev` 1362 lines, `ux-designer` 587, `sre` 580, `refacto` 678, `sysadmin` 410,
-`threejs-3d` 382, `team-selector` 333, `ux-writer` 326). A faithful translation — reading each file
-in full, translating it completely rather than summarizing, applying the renaming convention, and
-anonymizing — consumes far more context per file than the short skills ported here. This fork's
-context budget was exhausted after 5 files; continuing would have meant either stopping mid-file
-(risking a corrupted/partial commit) or producing rushed, unreviewed translations on the remaining
-46 — explicitly against the instruction to never claim "done" with unverified work.
+Isolated worktree (`C:\Projet\CLaude\antigravity-config-wt1`, no shared-checkout collision this
+time — the earlier 4-forks-one-directory incident does NOT apply here). Each file is read in full
+and translated completely (not summarized) before writing, which is the correct but
+context-expensive approach for a faithful port. 12 of 41 files done at a sustainable quality level;
+continuing in the same conversation risked exhausting context before committing cleanly.
 
-**Operational note for whoever runs the next pass**: this repository's working directory is shared
-across multiple concurrently-running forks, each switching branches in the same checkout. This
-caused a real incident during this batch — a `git reset --hard` issued while believing to be on
-`feature/port-skills-4` actually ran against `feature/port-skills-1` (switched by another fork
-moments earlier), destroying an uncommitted file (`switch-audit`) that had to be rewritten from
-memory. **Always run `git branch --show-current` immediately before and after any `git add`/`commit`
-or destructive command in this shared checkout** — don't trust that the branch you checked out
-minutes ago is still checked out now.
+Agent name renames applied where referenced in ported content (resolved from first principles since
+`RENAME-MAP.md` was empty and `.agents/*.md` not yet present on this branch lineage — agents land on
+a separate `feature/port-agents` branch not yet merged here):
+`cerbere-agent`→`security-agent`, `pythie-agent`→`data-agent`, `boussole-agent`→`product-agent`,
+`socle-agent`→`project-bootstrap-agent`, `vitruve-agent`→`architecture-agent`,
+`iris-agent`→`design-agent`, `marches-agent`→`public-procurement-agent`,
+`consultant-agent`→`paid-consultant-agent`, `avocat-du-diable-agent`→`devils-advocate-agent`,
+`pdg-agent`→`ceo-decision-agent`, `canaveral-agent`→`release-agent`,
+`atlas-agent`→`infrastructure-agent`, `themis-agent`→`pr-review-agent`,
+`gutenberg-agent`→`documentation-agent`, `bard-agent`→`game-master-agent`,
+`survivaliste-agent`→`survival-logistics-agent`, `policier-agent`→`legal-compliance-agent`,
+`frontend-agent`/`backend-agent`/`mentor-agent` unchanged.
+
+**These renames are NOT yet confirmed against the actual agents branch** — once
+`feature/port-agents` is merged, re-grep all ported skills for the OLD agent names to confirm no
+mismatch with whatever the agents fork actually chose.
 
 ## Recommendation for whoever picks this up
 
-- Split the remaining 46 into smaller batches, prioritizing by size: the ~20 short skills (under 120
-  lines: `szikra-*`, `task-tracker`, `tech-translator`, `unlazy`, `user-call`, `version-checker`,
-  `version-updater`, `visiteurs`, `vulnerability-management`, `web-search`, `web-vanilla`,
-  `windows-admin`, `sdd-*`) first, then the medium ones, then the large ones.
-- **`team-dev` and `team-selector` deserve their own dedicated fork** — they are the root
-  orchestration skills and almost certainly reference every old agent name
-  (`vitruve-agent`, `cerbere-agent`, `boussole-agent`, etc.) throughout their delegation logic. Every
-  one of those references must be updated to the new names (see `RENAME-MAP.md`). Treating them
-  together with a stack of unrelated skills risks rushing exactly the file that needs the most care.
-- None of the renaming decisions proposed in this fork's original directive for `visiteurs`,
-  `user-call`, `szikra-*`, `retro`→`friction-retro`, `taste` have been verified against the other
-  batches' `RENAME-MAP.md` entries — check for conflicts before finalizing.
+- The remaining 29 include several multi-file skill families: `compostel-*` (6 skills, likely share
+  a common theme — Camino de Santiago trip planning) — port as a logical group, they likely
+  cross-reference each other.
+- `bulletin-analyser`/`bulletin-service` are small utility skills — check for French-specific IT
+  bulletin/patch terminology needing generalization.
+- `cadrage` is referenced throughout `CLAUDE.md`/`claude-config` conventions as a core upstream
+  discipline — port carefully, it's heavily cross-referenced.
+- No known renaming conflicts among the 29 remaining — none matched an already-renamed skill name
+  found in `.agents/skills/` during this batch's work.
 
 ## Git state
 
-Branch `feature/port-skills-4`, commits:
-- `a3db161` feat(skills): port batch 4 skills (friction-retro through software-deploy)
-- `1b35e09` feat(skills): port switch-audit skill
+Branch `feature/port-skills-wt1`, commits:
+- `2f92c4a` feat(skills): port ai-agent-security through analytics-engineer
+- `aa3502f` feat(skills): port angular-developer through app-spec
+- `93410d9` feat(skills): port appsec through backend-updater
 
-Pushed to `origin/feature/port-skills-4` up to this file's own commit.
+Pushed to `origin/feature/port-skills-wt1` up to this file's own commit.
