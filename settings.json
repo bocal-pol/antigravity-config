@@ -1,0 +1,68 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "AskUserQuestion",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "Edit(.agents/skills/**)",
+      "Edit(.agents/*.md)",
+      "Bash(docker exec *)",
+      "Bash(docker compose *)",
+      "Bash(git add *)",
+      "Bash(git commit -m *)",
+      "Bash(git ls-tree *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(npx tsc *)",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_take_screenshot"
+    ],
+    "deny": [
+      "Bash(git push origin main*)",
+      "Bash(git push origin develop*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Read(**/.credentials.json)"
+    ],
+    "defaultMode": "plan"
+  },
+  "includeCoAuthoredBy": false,
+  "theme": "dark",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          { "type": "command", "command": "bash .agents/scripts/memory.sh" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash .agents/scripts/stop.sh" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          { "type": "command", "command": "bash .agents/scripts/pre-tool-use.sh" }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          { "type": "command", "command": "bash .agents/scripts/skill-log.sh" }
+        ]
+      }
+    ]
+  }
+}
