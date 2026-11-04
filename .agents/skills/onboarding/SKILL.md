@@ -1,0 +1,62 @@
+---
+name: onboarding
+description: "Generates a complete onboarding guide for newcomers — architecture, stack, conventions, workflows, required access. Auto-invoke on mention of: onboarding, getting started guide, new developer, getting started, project documentation."
+model: claude-sonnet-5
+user-invocable: true
+type: utility
+priority: medium
+scope: cross
+dependencies: []
+conflicts: []
+---
+
+# Onboarding
+
+Generates `ONBOARDING.md` at the root of the current project from the available sources.
+
+## Status: standalone, also invoked by delegation
+
+This skill is **self-sufficient**: invocable directly (`/team-dev --onboarding` or in natural
+language) with no dependency on any other skill. It is **also** invoked as a fixed delegation by
+`documentation-agent` (dimension F of its Phase 1) when full project documentation is requested — in
+that case, `documentation-agent` supplies the context from its Phase 2 (Discovery) as input to avoid
+reading the project twice.
+
+No strict hierarchy between the two: call `onboarding` directly for a one-off need (a new developer
+joining, with no other documentation work to do); go through `documentation-agent` when onboarding
+is part of a broader documentation strategy (README, API docs, product wiki at the same time).
+
+## Workflow
+
+### Phase 1 — Project mapping
+
+Try reading `.claude/project-graph.md`. If absent, use Glob `**/*` and `**/**/*` (2 levels) to map
+the folder structure and main files.
+
+### Phase 2 — Reading the sources
+
+Read if present: `README.md`, `package.json`, `requirements.txt`, `pyproject.toml`,
+`composer.json`, `.env.example`.
+Also read `AGENTS.md` for internal conventions.
+Glob `docs/**/*.md` for existing documentation.
+
+### Phase 3 — Generating ONBOARDING.md
+
+Mandatory sections:
+1. **Project overview**: purpose, audience, status
+2. **Technical stack**: languages, frameworks, main tools inferred from the manifests
+3. **Local installation**: numbered, copy-pasteable steps (from the README or inferred)
+4. **Architecture**: based on project-graph or the detected Glob structure
+5. **Code conventions**: from AGENTS.md or inferred from the existing style
+6. **Git workflow**: main branch, naming, PR process (from AGENTS.md or inferred)
+7. **Contacts and required access**: explicit placeholders if not automatically detectable (`<!-- To complete -->`)
+
+Before the final write, offer to illustrate the key sections (architecture, workflow) with a
+narrative accompanying image. If accepted, call the Skill tool with `croquis-editorial` —
+automatic-mode generation, no intermediate prompt validation (see
+`croquis-editorial/references/calling-agents.md`).
+
+### Phase 4 — Writing
+
+Write `ONBOARDING.md` at the root of the current project (overwrite if it exists).
+Show confirmation: `✅ ONBOARDING.md generated`
