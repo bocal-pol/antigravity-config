@@ -11,7 +11,7 @@ skill.
 Single entry point: see `.agents/team-dev.md`.
 
 To contribute: [CONTRIBUTING.md](CONTRIBUTING.md) · Report a security issue:
-[SECURITY.md](SECURITY.md) · License: [MIT](LICENSE)
+[SECURITY.md](SECURITY.md) · License: [MIT](LICENSE) · Credits: [CREDITS.md](CREDITS.md)
 
 ---
 
