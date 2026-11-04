@@ -1,0 +1,84 @@
+# ─── Credentials and auth tokens ──────────────────────────────────────────────
+.credentials.json
+
+# ─── Prompt/session history (personal data) ───────────────────────────────────
+history.jsonl
+
+# ─── Sessions and transcripts (personal data) ─────────────────────────────────
+sessions/
+
+# ─── Telemetry and session environment ────────────────────────────────────────
+telemetry/
+session-env/
+
+# ─── Runtime cache and state ───────────────────────────────────────────────────
+mcp-needs-auth-cache.json
+policy-limits.json
+
+# ─── Audit logs and shell snapshots ────────────────────────────────────────────
+bash-audit.log
+shell-snapshots/
+
+# ─── Backups and file history ──────────────────────────────────────────────────
+backups/
+file-history/
+
+# ─── Local settings (machine-specific) ─────────────────────────────────────────
+settings.local.json
+.agents/settings.local.json
+
+# ─── Local instructions (loaded if present) ────────────────────────────────────
+AGENTS.local.md
+
+# ─── Ephemeral working files (gates, scratch) ──────────────────────────────────
+.agents/tmp/
+
+# ─── IDE locks and runtime state ───────────────────────────────────────────────
+ide/
+
+# ─── Local memory (outside per-project auto-memory) ────────────────────────────
+memory/
+
+# ─── Ephemeral work plans ───────────────────────────────────────────────────────
+plans/
+
+# ─── Plugins (local config, not portable) ──────────────────────────────────────
+plugins/
+
+# ─── Projects (sessions, transcripts, machine-specific data) ───────────────────
+projects/
+
+# ─── Node.js dependencies ───────────────────────────────────────────────────────
+node_modules/
+package-lock.json
+package.json
+
+# ─── Contextual and temporary audit files ──────────────────────────────────────
+AUDIT.md
+remote-settings.json
+.env
+
+# ─── Logs and execution caches (hook-generated, never versioned) ──────────────
+logs/*.log
+!logs/.gitkeep
+cache/
+
+# ─── Per-project accumulated knowledge (written by skills elsewhere, not here) ─
+*-knowledge.md
+
+# ─── Runtime state (locks, daemon, cleanup, temp files) ────────────────────────
+.last-cleanup
+.update.lock
+daemon/
+policy-limits.json.stamp.json
+policy-limits.json.stamp.json.tmp.*
+policy-limits.json.signature.json
+policy-limits.json.signature-iat.json
+remote-settings.json.signature.json
+remote-settings.json.signature-iat.json
+remote-settings.json.synced-at
+tmp/
+state/
+
+# ─── Skill trash (deletions via the harness, machine-specific) ────────────────
+.agents/skills/.trash/
