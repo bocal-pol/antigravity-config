@@ -67,7 +67,7 @@ explicitly confirmed, and no error message discloses exploitable technical infor
 
 All projects with an interface (web, mobile). Out of scope: an API with no interface, purely
 server-side batch processing with no associated UI. Complements
-[ADR 0003](0003-ui-states-4-etats-obligatoires.md) and
-[ADR 0005](0005-messages-erreur-3-parties.md), ties into
-[ADR 0006](0006-resilience-sous-charge.md) (offloading long tasks to a job/queue) and
-[ADR 0011](0011-saveme-pattern-feedback-non-modal.md) (SaveMe, for reversible actions).
+[ADR 0003](0003-ui-states-4-mandatory-states.md) and
+[ADR 0005](0005-error-messages-3-parts.md), ties into
+[ADR 0006](0006-resilience-under-load.md) (offloading long tasks to a job/queue) and
+[ADR 0011](0011-saveme-non-modal-feedback-pattern.md) (SaveMe, for reversible actions).

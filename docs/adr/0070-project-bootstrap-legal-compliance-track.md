@@ -56,7 +56,7 @@ replacing it: the bootstrap kit now counts 6 fixed deliverables + 1 conditional 
 ## Scope
 
 Applies to `agents/project-bootstrap-agent.md` and the bootstrap/quality-loop phases of
-`skills/team-dev/SKILL.md`. Complements [ADR 0056](0056-kit-amorcage-socle-agent.md) (the bootstrap
-kit) and ties into [ADR 0035](0035-compliance-rgpd-team-dev-full.md) (GDPR compliance integrated
-into the full cycle) and [ADR 0069](0069-legal-pages-multi-juridiction-ue.md) (multi-jurisdiction
+`skills/team-dev/SKILL.md`. Complements [ADR 0056](0056-project-bootstrap-kit.md) (the bootstrap
+kit) and ties into [ADR 0035](0035-gdpr-compliance-officer-team-dev-full.md) (GDPR compliance integrated
+into the full cycle) and [ADR 0069](0069-legal-pages-multi-jurisdiction-eu.md) (multi-jurisdiction
 `legal-pages`).

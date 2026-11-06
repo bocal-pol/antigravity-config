@@ -61,6 +61,6 @@ The `ai-visitor-simulation` skill combines both approaches rather than choosing 
 
 All projects with a user interface orchestrated via `team-dev --full`. Out of scope: an API with no
 interface, internal tools with no frontend (explicitly skipped), pages behind complex authentication
-not supplied as input. Ties into [ADR 0071](0071-performance-percue-reactivite-confirmation.md)
+not supplied as input. Ties into [ADR 0071](0071-perceived-performance-responsiveness.md)
 (perceived performance, the same family of UX concern) without duplicating it, and delegates
 accessibility to `accessibility-lead` rather than reimplementing it.

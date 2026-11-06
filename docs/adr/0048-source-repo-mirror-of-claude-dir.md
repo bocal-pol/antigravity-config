@@ -1,6 +1,6 @@
 # ADR 0048 — The source repo as a versioned mirror of `~/.claude`
 
-- **Status**: **partially superseded by [ADR 0062](0062-claude-dir-checkout-git.md)** — section 1 (the
+- **Status**: **partially superseded by [ADR 0062](0062-claude-dir-is-a-git-checkout.md)** — section 1 (the
   `.gitignore` contract) still holds; section 2 (manual dual-write) is abandoned: `~/.claude` is now
   itself a git checkout.
 - **Date**: 2026-09-17

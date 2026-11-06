@@ -45,7 +45,7 @@ On any screen with a primary action, apply 4 hierarchy rules:
    be merged.
 
 The original request's fifth point — not showing an option with no business value — is **already
-covered by the Lazy Principle** ([ADR 0013](0013-principe-flemmard-zero-saisie-inutile.md)) on the
+covered by the Lazy Principle** ([ADR 0013](0013-lazy-principle-zero-unnecessary-input.md)) on the
 forms side; this ADR extends it to actions and interface options in the broad sense (a button, a
 menu item, a toggle) rather than redefining the same decision hierarchy twice: an option that serves
 no real use case for the current user simply doesn't show up.
@@ -70,7 +70,7 @@ no real use case for the current user simply doesn't show up.
 - Requires an explicit product call when two actions genuinely seem equal in business importance —
   the ADR doesn't make that call, it only forces it to be made consciously
 - Risk of over-hiding: a useful but infrequent option relegated too deep becomes a discoverability
-  problem of its own (see [ADR 0036](0036-raccourcis-clavier-couverture-complete.md) on keeping
+  problem of its own (see [ADR 0036](0036-keyboard-shortcuts-full-coverage.md) on keeping
   every shortcut accessible and documented even when collapsed)
 
 ## Alternatives considered
