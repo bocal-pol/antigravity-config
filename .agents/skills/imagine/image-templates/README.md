@@ -52,14 +52,12 @@ compatible_with: [flux, sdxl, midjourney-v6]
 ## Variation history
 ```
 
-See `EXAMPLE-template.md` for a complete, concrete example.
-
 ## How to use a template
 
 From this environment:
 
 ```
-imagine template elara-mage
+imagine template <name>
 ```
 
 The skill loads the template, displays the visual DNA, asks for the variation context (action,
@@ -72,7 +70,7 @@ Two paths:
 
 1. **From a successful generation**: after `imagine deep`, at Phase 5 the skill offers "Save as a
    template?". Answer yes → it generates the file automatically.
-2. **Manually**: copy `EXAMPLE-template.md`, rename it, edit the sections.
+2. **Manually**: copy the schema above into a new `<name>.md` file, fill in the sections.
 
 ## Versioning
 
