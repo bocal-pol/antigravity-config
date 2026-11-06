@@ -79,7 +79,11 @@ not agent files — they're handled by the skills porting pass, not this one.
 
 ## Skills
 
-_To be completed by the skills porting pass._
+All 196 skills ported. Nearly all kept their original name (already in kebab-case, already
+descriptive); only 3 were renamed for clarity or naming consistency with other ported skills.
 
 | Original name | New name | Notes |
 | --- | --- | --- |
+| croquis-editorial | editorial-sketch | English name, kept its 6 `references/` files |
+| investigue | investigate | English name |
+| no | encode-correction | The short name "no" (as in "no, do it like this") doesn't translate; renamed to describe what it does — encoding a behavior correction |
