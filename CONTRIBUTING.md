@@ -109,14 +109,31 @@ through `team-dev`. A level-2 agent never calls level 0.
 
 ## 4. Git workflow
 
-`main` and `develop` are protected — direct push is refused by the `pre-tool-use.sh` hook *and* by
-permission settings.
+This is a **public** repository: external contributors don't have push access, so contributing
+goes through a fork, not a direct branch on this repo. `main` and `develop` are protected on the
+upstream side regardless — direct push is refused by the `pre-tool-use.sh` hook *and* by permission
+settings for anyone who does have write access.
 
-```bash
-git checkout develop
-git pull origin develop
-git checkout -b feature/short-name
-```
+1. Fork `bocal-pol/antigravity-config` to your own GitHub account.
+2. Clone **your fork** locally:
+   ```bash
+   git clone https://github.com/<your-account>/antigravity-config.git
+   ```
+3. Add the original repository as the `upstream` remote, so you can resync later:
+   ```bash
+   git remote add upstream https://github.com/bocal-pol/antigravity-config.git
+   ```
+4. Create a branch from an up-to-date `develop`:
+   ```bash
+   git fetch upstream
+   git checkout -b feature/short-name upstream/develop
+   ```
+5. Push to **your fork**, never to the original repository (you don't have rights there anyway):
+   ```bash
+   git push -u origin feature/short-name
+   ```
+6. Open a Pull Request from `<your-account>/antigravity-config:feature/short-name` to
+   `bocal-pol/antigravity-config:develop` on GitHub.
 
 One branch = one objective. Prefixes: `feature/*`, `bugfix/*`, `hotfix/*`.
 

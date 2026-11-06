@@ -304,6 +304,42 @@ Application rules:
 Use the **Sequential Thinking MCP server** (not a skill) for any complex multi-step reasoning —
 architecture decisions, difficult debugging, sprint planning, complexity estimation.
 
+## MCP consent — propose, remember, never re-ask after a refusal
+
+Before the very first use of an `mcp__<server>__*` tool in a session, if that server has no
+recorded decision yet for this project, the assistant must **stop and ask** via an interactive
+confirmation (never a silent call) — not a shell hook, which can only allow or block without asking
+a question: it is the assistant's job to detect the situation and pause before invoking the tool.
+(This pattern assumes an interactive confirmation mechanism such as Claude Code's `AskUserQuestion`
+tool; adapt to whatever equivalent mechanism Antigravity exposes, if any — see "Known limitations"
+above.)
+
+**Choice registry**: `.agents/mcp-choices.json` at the project root, **gitignored** (a personal,
+per-machine choice, never shared or pushed to any repository — this one or its mirrors). Format:
+
+```json
+{
+  "context7": { "decision": "accepted", "decided_at": "2026-11-04" },
+  "hf-image": { "decision": "declined", "decided_at": "2026-11-04" }
+}
+```
+
+**Rules**:
+
+- A server already declared in a project-scope MCP config file or installed at user scope counts as
+  "declared" — proposing its **use** does not mean installing it, it already is. For a server not
+  yet declared, acceptance triggers the appropriate install action before continuing the task that
+  needed it.
+- An **acceptance** is recorded, then the tool is used normally in every later session without
+  asking again.
+- A **refusal** is recorded and **silently respected** in every later session — never propose that
+  specific server again, except for the one exception below.
+- **Exception**: an update that significantly changes what an already-refused server does (a new
+  exposed tool, a change in data scope, a change of provider) justifies asking again — never a
+  periodic re-ask with no real change.
+- If `.agents/mcp-choices.json` does not exist yet, create it at the first decision rather than
+  waiting until every server has been decided.
+
 ## Git workflow — permanent rule, all projects
 
 ### Branches
