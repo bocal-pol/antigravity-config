@@ -15,7 +15,7 @@ Operational consequence: the repo imposed a Pull Request workflow on every proje
 
 ### 1. MIT license
 
-Held by: the repo owner, 2026. Chosen for three reasons:
+Held by: Pascal Dengis, 2026 (legitimate copyright attribution, consistent with `LICENSE`). Chosen for three reasons:
 
 - It's compatible with skills already derived from MIT upstreams (`taste`, `impeccable`, `ponytail`), which a more restrictive license would put at odds with.
 - The repo's content is conventions and prompts, not an asset to protect.
