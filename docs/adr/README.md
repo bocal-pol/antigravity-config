@@ -2,7 +2,7 @@
 
 Structuring decisions of this ecosystem and the cross-cutting conventions applied to every project.
 
-- **73 ADRs** — 0001 to 0073, one superseded (0032) and one partially superseded (0048 §2 by 0062)
+- **74 ADRs** — 0001 to 0074, one superseded (0032) and one partially superseded (0048 §2 by 0062)
 - A file duplicated under number 0025 (a leftover from renaming the canary word, ADR 0065) was
   removed on 2026-10-30 — its history stays documented in the amendment of
   [0025](0025-canary-instruction-drift-detection.md) itself, no information lost
@@ -25,6 +25,7 @@ Structuring decisions of this ecosystem and the cross-cutting conventions applie
 | [0058](0058-settings-permissions-by-class.md) | `settings.json` permissions by generic classes | accepted | Config |
 | [0059](0059-laravel-security-guardrails.md) | Laravel: API Resources, auth by default, secret-free logs | accepted | Laravel backend |
 | [0069](0069-legal-pages-multi-jurisdiction-eu.md) | `legal-pages`: multi-jurisdiction EU support | accepted | Legal pages |
+| [0074](0074-skillspector-skill-mcp-scan.md) | SkillSpector: security scan for third-party skills/agents/MCP | accepted | Skills, agents, MCP |
 
 ## Frontend, UX, and design
 
