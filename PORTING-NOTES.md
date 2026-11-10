@@ -62,6 +62,12 @@ Completed in this phase:
   carry into a public repository, and review for any personally-identifying content.
 - **`image-templates/`** (~30 template files) — a bundled catalog of image-generation prompt
   templates. Left for a later pass; not reviewed for privacy or relevance to Antigravity yet.
+- **`skillspector`** — a security scanner skill for third-party skills/agents/MCP servers. Not
+  ported in any phase so far. `.agents/skills/improve-skills/SKILL.md` and
+  `.agents/skills/retro/SKILL.md` reference a post-fix verification phase that calls it in the
+  source configuration; here that phase is marked as a known limitation (scan step skipped, fix
+  still published) rather than silently omitted, pending a decision on whether to port the scanner
+  itself.
 
 ## Privacy filtering applied during this port
 
