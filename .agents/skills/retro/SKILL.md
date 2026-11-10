@@ -55,7 +55,7 @@ List the candidates **in descending order of severity** (observed cost × likeli
 
 Via `AskUserQuestion`, have each candidate decided (apply / log / reject). Then:
 
-- **Touches a skill** → an `OBS-NNN` entry in `~/.agents/memory/skill-observations/log.md`, **collision-safe protocol**: read the max number, assert its absence, write N+1, verify the count. `improve-skills` will consume it. Exact format (`stop.sh` and `improve-skills` parse these fields, don't change their shape):
+- **Touches a skill** → an `OBS-NNN` entry in `~/.agents/memory/skill-observations/log.md`, **collision-safe protocol**: read the max number, assert its absence, write N+1, verify the count. `improve-skills` will consume it, and should attempt its **Phase 6 — Verification after a fix** (⚠️ partially unported — see that skill's note) once the fix or creation has been written. Exact format (`stop.sh` and `improve-skills` parse these fields, don't change their shape):
 
   ```markdown
   ### OBS-012

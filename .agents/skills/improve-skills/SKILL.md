@@ -73,4 +73,19 @@ Via AskUserQuestion, ask for each skill: "Apply these changes to [name]?" Apply 
 ### Phase 5 — Application
 
 Rewrite the approved files with Write. Confirm the path of each modified file.
+
+### Phase 6 — Verification after a fix (⚠️ partially unported)
+
+**Applies only** when Phase 0 processed an observation coming from `retro` (a skill fix or creation
+following a captured error or friction) — not to a voluntary structural review with no underlying
+pending observation. In the source configuration this repository is ported from, this phase runs a
+security scanner (`skillspector`) on the fixed or created skill before publishing it, then pushes
+through a fork-based Pull Request workflow (see `CONTRIBUTING.md` if this repository has one, or the
+hosting platform's standard fork/PR flow otherwise).
+
+**Known limitation**: `skillspector` itself was never ported into this repository (see
+`PORTING-NOTES.md`) — there is no scanner here to call. Until a decision is made on whether to port
+it, skip the scan step and note "SkillSpector not available in this port" in the report; still
+publish the fix through a Pull Request rather than skipping that step, since it carries no
+unconfirmed-support risk on its own.
 </content>
