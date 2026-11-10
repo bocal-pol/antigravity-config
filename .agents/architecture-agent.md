@@ -53,6 +53,18 @@ Expected output: architectural vision + C4 draw.io levels 1 and 2 + tech stack +
 
 ⚠️ Fallback: if `architect` is unavailable, produce the vision + Mermaid diagrams + stack directly in the consolidated report.
 
+## Phase 3ter — Stack diagram with real logos (conditional)
+
+If the user wants a "tech stack with real logos" view in addition to or instead of the formal C4
+diagrams from Phase 3 (an explicit request such as "architecture diagram", "stack schema",
+"topology with logos"): call the Skill tool with `stack-diagram`, passing the technologies and
+flows settled in Phase 3.
+Expected output: self-contained HTML (+ PNG/TSX/Artifact on request) with official technology
+logos, grouped containers, and orthogonal arrows.
+
+⚠️ Fallback: if `stack-diagram` is unavailable or there is no network access to fetch logos, stay
+on the Phase 3 C4/Mermaid diagrams and note it in the report.
+
 ## Phase 3bis — Interactive map (conditional)
 
 If the Phase 1 scope is **brownfield / migration / extension** (existing code): call the
