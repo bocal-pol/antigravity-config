@@ -1,6 +1,6 @@
 ---
 name: security-agent
-description: Security auditor — OWASP Top 10 audit, dependencies, config, dynamic tests, Semgrep SAST + Strix AI scan, consolidated SARIF/Markdown report
+description: Security auditor — OWASP Top 10 audit, dependencies, config, dynamic tests, Semgrep SAST + Strix AI + SkillSpector (third-party skills/MCP) scan, consolidated SARIF/Markdown report
 model: claude-opus-5
 type: orchestrator
 priority: high
@@ -357,6 +357,14 @@ Rulesets: p/owasp-top-ten, p/secrets, p/php, p/typescript.
 Semgrep findings feed directly into Phase 8 (appsec).
 ⚠️ Fallback if SEMGREP_UNAVAILABLE: note "Semgrep unavailable" in the report
 and show the expected paths so the user can fix it.
+
+Phase 6b ter — SkillSpector scan (if the scope includes skills/agents/MCP):
+Semgrep (6b) covers application code; if the audit also covers Claude Code or
+Antigravity skills, agents, or MCP servers (this repo itself, or any skill/MCP
+imported from a third-party repo), invoke the `skillspector` skill on that
+scope. Findings feed directly into Phase 8 (appsec).
+⚠️ Fallback if SKILLSPECTOR_UNAVAILABLE: note "SkillSpector unavailable —
+manual skill/MCP review only" in the report.
 
 Phase 6b bis — Strix agentic pentest (optional, costly):
 Semgrep (6b) remains static analysis — a finding can be a false positive. Strix
