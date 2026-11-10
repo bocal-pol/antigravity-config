@@ -313,6 +313,31 @@ Repositories **abstract data access** — services call the repository, never El
 - **Service calls the repository via injection**: never Eloquent/DB directly
 - **Full example** → see the `dto-architect` skill (IRepository + IDemandeRepository + DemandeRepository + RepositoryServiceProvider)
 
+## ⚡ Performance — backend checklist to check on EVERY deliverable
+
+N+1, targeted SELECT, and indexes are already covered above (Projections, Repositories,
+Migrations sections). The following points are not covered yet — check before delivery:
+
+- [ ] **Async jobs**: every slow operation (mail, export, PDF, AI call) runs through `Queue::push()`
+  (already in place in Services above) — never run synchronously in the HTTP request.
+  A synchronous call to this kind of operation blocks the response for the full operation time.
+- [ ] **Compression**: Brotli or gzip enabled on HTML/JSON responses (`web.php` middleware or
+  Nginx/Apache server config). Without it, every response weighs 2 to 4 times more to transfer.
+- [ ] **AI streaming**: every long AI generation response (Sophia, summary, completion) streams
+  token by token (`StreamedResponse`), instead of returning as one block after full generation —
+  otherwise the user waits for the whole text before seeing the first letter.
+- [ ] **Pagination**: every list endpoint uses `.paginate()` (already shown in Phase 3,
+  `getAll()`) — never an unbounded `.get()` on a table that can grow.
+- [ ] **Redis cache on hot data**: anything read often and changed rarely (reference data,
+  configuration, aggregates) goes through `Cache::remember()` with an explicit TTL — not a
+  repeated DB query for stable data.
+
+> Connection pooling, external API timeouts, retry/backoff, rate limiting, and graceful
+> degradation are already covered by the **Resilience under load** checklist in the global
+> `AGENTS.md` — do not duplicate it here. The carbon angle of these same optimizations (images,
+> CDN, aggressive cache) is in `skills/green-it/SKILL.md` Phase 3 — refer to it instead of
+> restating it.
+
 ## 📦 DTOs, Controllers, Models & Migrations — delegated to `dto-architect`
 
 Every API endpoint produces OR consumes a DTO. **No Eloquent Model is ever exposed in a response**.
