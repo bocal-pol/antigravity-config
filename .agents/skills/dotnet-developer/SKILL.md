@@ -333,6 +333,30 @@ Repositories **abstract data access** — services call the repository, never th
 - **Migration**: `dotnet ef migrations add CreateDemande` generates SQL **with indices and constraints** if the configuration is correct.
 - **Verification**: re-read the generated `.sql` file, check indices and defaults before pushing.
 
+## ⚡ Performance — backend checklist to check on EVERY deliverable
+
+N+1, SQL-level projections, and indexes are already covered above (Projections, Repositories,
+EF Core Configuration sections). The following points are not covered yet:
+
+- [ ] **Async jobs**: every slow operation (mail, export, PDF, AI call) runs through a background
+  service/queue (`EnqueueAsync`, already shown in Services above) — never synchronously inside
+  the controller action.
+- [ ] **Compression**: `ResponseCompressionMiddleware` (Brotli + gzip) enabled in `Program.cs`.
+  Without it, every JSON response weighs 2 to 4 times more to transfer.
+- [ ] **AI streaming**: every long AI generation response streams (`IAsyncEnumerable<T>` or
+  Server-Sent Events), instead of returning as one block after full generation — otherwise the
+  user waits for the whole text before seeing the first letter.
+- [ ] **Pagination**: every list endpoint returns `PaginatedData<T>` (already shown in Phase 8,
+  `GetFeatures()`) — never an unbounded `.ToListAsync()` on a table that can grow.
+- [ ] **Cache on hot data**: anything read often and changed rarely (reference data,
+  configuration) goes through `IMemoryCache`/Redis with an explicit TTL — not a repeated EF Core
+  query for stable data.
+
+> Connection pooling, external API timeouts, retry/backoff, rate limiting, and graceful
+> degradation are already covered by the **Resilience under load** checklist in the global
+> `AGENTS.md` — do not duplicate it here. The carbon angle of these same optimizations is in
+> `skills/green-it/SKILL.md` Phase 3 — refer to it instead of restating it.
+
 ## 🗂️ DbEntity — Infrastructure layer (persistence)
 
 `DbEntity`s are **internal to the Infrastructure layer**. Never in an API response. Shared interfaces (`IHasDateTime`, `IHasAuditUser`, `IDeadLine`, etc.) avoid duplication.

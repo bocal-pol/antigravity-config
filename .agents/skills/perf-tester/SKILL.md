@@ -111,6 +111,36 @@ Indicative thresholds: p95 < 200ms ✅ | 200-500ms ⚠️ | > 500ms ❌
 - Rising error rate → resource limits (threads, connections, memory)
 - p99 >> p95 → outlier requests (GC pause, lock contention)
 
+### Phase 5bis — Client-side rendering under constraint (CPU/network throttling)
+
+> A different angle from the previous phases: k6/JMeter/Locust measure **server load** (how many
+> simultaneous requests the backend handles); this phase measures **perceived client-side
+> rendering** on a slow device — a fast backend can still make an app feel slow if JavaScript
+> blocks the main thread on a low-end phone.
+
+If the project has a web interface and Playwright/Chrome DevTools Protocol is available:
+
+```javascript
+// Emulate 4x CPU slowdown + "Fast 3G" network via CDP (Playwright)
+const client = await page.context().newCDPSession(page);
+await client.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+await client.send('Network.emulateNetworkConditions', {
+  offline: false,
+  downloadThroughput: (1.6 * 1024 * 1024) / 8, // Fast 3G
+  uploadThroughput: (750 * 1024) / 8,
+  latency: 150,
+});
+```
+
+- **Measure**: time to first useful render (LCP), time to interactive (TTI/INP) under these
+  degraded conditions — not only on the development machine, which hides a bundle that is too
+  heavy or JavaScript that blocks the main thread.
+- **Indicative threshold**: LCP < 2.5s and INP < 200ms even under Fast 3G/4x CPU throttling —
+  beyond that, a user on a real device/network perceives the app as slow even though it is not
+  locally.
+- **Fallback without Playwright**: document the manual procedure (Chrome DevTools → Performance →
+  4x CPU slowdown + Network "Fast 3G") and report `⚠️ Automation not available — manual test required`.
+
 ### Phase 6 — Conditional persistence
 
 - **Standalone**:
