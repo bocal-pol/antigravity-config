@@ -32,6 +32,9 @@
     ],
     "defaultMode": "plan"
   },
+  "worktree": {
+    "baseRef": "head"
+  },
   "includeCoAuthoredBy": false,
   "theme": "dark",
   "hooks": {
