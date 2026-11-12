@@ -43,9 +43,15 @@ confirmed Antigravity equivalent** and are carried over on a best-effort basis o
   own skill-invocation tool, not an Antigravity-native mechanism. Nothing confirms Antigravity reads
   or acts on it.
 - **Frontmatter keys beyond `name`/`description`** — `model`, `type`, `priority`, `scope`,
-  `dependencies`, `conflicts`, `allowed-tools`/`disallowed-tools` — are preserved on skill and agent
-  files for documentation and future tooling purposes, but their interpretation (if any) by
-  Antigravity is unconfirmed.
+  `dependencies`, `conflicts`, `allowed-tools`/`disallowed-tools`, `isolation` — are preserved on
+  skill and agent files for documentation and future tooling purposes, but their interpretation (if
+  any) by Antigravity is unconfirmed.
+- **`isolation: worktree`** (on `backend-agent.md`, `frontend-agent.md`, `mobile-agent.md`,
+  `infrastructure-agent.md`) and `worktree.baseRef` in `settings.json` — in the source assistant,
+  this pairing makes an agent always run in its own isolated git worktree. It depends on a CLI flag
+  (`claude -w`/`--worktree`) and a tool pair (`EnterWorktree`/`ExitWorktree`) with no confirmed
+  Antigravity equivalent; the keys are carried over as documentation of intent only. See
+  `PORTING-NOTES.md` for why the accompanying `worktree-agents` skill was not ported at all.
 
 Treat every mechanism in this file beyond plain Markdown instructions and the `.agents/skills/`
 discovery convention as **unverified** until confirmed against the actual IDE behavior. See
