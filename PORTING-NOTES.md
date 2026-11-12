@@ -68,6 +68,16 @@ Completed in this phase:
   source configuration; here that phase is marked as a known limitation (scan step skipped, fix
   still published) rather than silently omitted, pending a decision on whether to port the scanner
   itself.
+- **`worktree-agents`** (source ADR 0075) — a skill documenting a `claude -w <name>` CLI workflow
+  (one git worktree per parallel session, merged in a dedicated session afterward) and the
+  `isolation: worktree` agent frontmatter key. Not ported as a skill: the entire method hinges on a
+  Claude Code CLI flag (`claude -w`/`--worktree`) and an `EnterWorktree`/`ExitWorktree` tool pair
+  with no confirmed Antigravity equivalent — unlike a frontmatter key, there is no plausible
+  best-effort translation for a CLI flag that may not exist in the target product at all. The
+  `isolation: worktree` key itself **is** carried over on `backend-agent.md`, `frontend-agent.md`,
+  `mobile-agent.md`, `infrastructure-agent.md` and in `settings.json` (`worktree.baseRef`),
+  following the same "documentation of intent, unconfirmed interpretation" treatment as every other
+  frontmatter key — see "Known limitations" in `AGENTS.md`.
 
 ## Privacy filtering applied during this port
 
