@@ -60,20 +60,33 @@ Complementary rulesets available:
 ### Phase 1 — Environment validation
 
 **Step 1a — Detect the compose file:**
+
+Known paths (fast path, tried first — can go stale after an infra repo reorganization):
+- `C:\Projet\SiteV26\InfraDocker\compose.dev-tools.yaml`
+- `D:\site26\SiteV26\InfraDocker\compose.dev-tools.yaml`
+
+If neither exists, **search before concluding the tool is absent** — never return
+`SEMGREP_ABSENT` on the sole failure of these two known paths:
 ```bash
-# Try both known paths
-if (Test-Path "C:\Projet\SiteV26\InfraDocker\compose.dev-tools.yaml") {
-    $COMPOSE_FILE = "C:\Projet\SiteV26\InfraDocker\compose.dev-tools.yaml"
-} elseif (Test-Path "D:\site26\SiteV26\InfraDocker\compose.dev-tools.yaml") {
-    $COMPOSE_FILE = "D:\site26\SiteV26\InfraDocker\compose.dev-tools.yaml"
-} else {
-    Write-Warning "⚠️ SEMGREP ABSENT — compose.dev-tools.yaml not found at known paths:"
-    Write-Warning "  · C:\Projet\SiteV26\InfraDocker\compose.dev-tools.yaml"
-    Write-Warning "  · D:\site26\SiteV26\InfraDocker\compose.dev-tools.yaml"
-    Write-Warning "Verify that InfraDocker is cloned and the container is started."
-    exit 2
-}
+find <monorepo-root> -maxdepth 5 -name compose.dev-tools.yaml 2>/dev/null
 ```
+If the search also fails:
+```
+⚠️ SEMGREP ABSENT — compose.dev-tools.yaml not found (known paths and repo search both failed).
+Verify that InfraDocker is cloned and the container is started.
+```
+exit 2
+
+**Direct fallback (if the compose file is missing, or mounts a volume that no longer covers the
+target after an infra repo reorganization)**:
+```bash
+docker run --rm -v <TARGET_PATH>:/src:ro semgrep/semgrep:1.90.0 scan \
+  --config p/owasp-top-ten --config p/secrets --metrics=off --json \
+  --output /tmp/semgrep-results.json /src
+```
+This nominal path avoids depending on the compose mount — explicitly flag to the user that a
+direct `docker run` fallback was used, rather than reporting "semgrep unavailable" when the tool
+actually works.
 
 **Step 1b — Verify the container responds:**
 ```bash
