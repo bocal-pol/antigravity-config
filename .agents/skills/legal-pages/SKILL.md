@@ -58,7 +58,13 @@ If no context is provided, run Phases 1 through 3 to reconstruct it.
 
 ### Phase 1 — Scoping
 
-If not provided as input, ask via **AskUserQuestion**:
+**Publication country**: read `.claude/country.md` at the project root before asking anything
+(Lazy Principle — shared convention with `dpo-toolkit`). If it holds a usable EU country code,
+use it directly for [`references/jurisdictions.md`](references/jurisdictions.md) without asking
+again. If it holds `EU`/`WORLD`, is missing, or holds a non-EU country: ask via AskUserQuestion as
+below, then write the answer to `.claude/country.md` if it wasn't already there.
+
+If not provided as input nor in `.claude/country.md`, ask via **AskUserQuestion**:
 0. **Publication country**: Belgium (default), France, Luxembourg, Netherlands, Germany, or Other
    EU country (in which case the exact country is asked explicitly). Determines the variant read
    from [`references/jurisdictions.md`](references/jurisdictions.md) for all Phase 3 documents —

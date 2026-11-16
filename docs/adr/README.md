@@ -2,7 +2,8 @@
 
 Structuring decisions of this ecosystem and the cross-cutting conventions applied to every project.
 
-- **74 ADRs** — 0001 to 0074, one superseded (0032) and one partially superseded (0048 §2 by 0062)
+- **75 ADRs** — 0001 to 0076 (0075 not yet ported from the source repo), one superseded (0032) and
+  one partially superseded (0048 §2 by 0062)
 - A file duplicated under number 0025 (a leftover from renaming the canary word, ADR 0065) was
   removed on 2026-10-30 — its history stays documented in the amendment of
   [0025](0025-canary-instruction-drift-detection.md) itself, no information lost
@@ -75,6 +76,7 @@ Structuring decisions of this ecosystem and the cross-cutting conventions applie
 | [0046](0046-subagent-discipline-mcp-hygiene.md) | Subagent discipline and MCP hygiene | accepted | Sessions |
 | [0056](0056-project-bootstrap-kit.md) | The project-bootstrap kit produced by `project-bootstrap-agent` | accepted | New projects |
 | [0070](0070-project-bootstrap-legal-compliance-track.md) | `project-bootstrap-agent`: a conditional legal-compliance track (complements 0056) | accepted | New projects |
+| [0076](0076-shared-country-md-jurisdiction.md) | `.claude/country.md`, a jurisdiction file shared between `legal-pages`/`compliance-officer`/`dpo-toolkit` | accepted | dpo-toolkit, legal-pages, project-bootstrap-agent |
 
 ## Orchestration — agents and skills
 
@@ -134,5 +136,5 @@ Some ADRs complement each other and read together:
 - **Monorepo** — 0042 (duplication) + 0043 (test harness)
 - **Secrets & config** — 0002 (secrets) + 0026 (hooks) + 0058 (permissions)
 - **Git workflow** — 0020 (branches, commits) + 0073 (local validation before a PR)
-- **Legal compliance** — 0069 (multi-jurisdiction `legal-pages`) → 0070 (`project-bootstrap-agent` bootstrap, complements 0056)
+- **Legal compliance** — 0069 (multi-jurisdiction `legal-pages`) → 0070 (`project-bootstrap-agent` bootstrap, complements 0056) → 0076 (shared `country.md`, `dpo-toolkit` register/DPIA)
 - **Perceived UX before production** — 0071 (responsiveness/confirmation) + 0072 (AI visitor simulation), both complementary to 0003/0005/0006/0011 without duplicating them
