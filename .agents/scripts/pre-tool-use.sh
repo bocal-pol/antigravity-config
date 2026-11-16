@@ -40,11 +40,17 @@ SCAN=$(printf '%s' "$COMMAND" | sed -E 's/"[^"]*"//g; s/'"'"'[^'"'"']*'"'"'//g')
 # Repository rule: a single author and contributor on every commit.
 # This check deliberately stays on $INPUT (not $SCAN): the co-authorship to
 # detect is precisely INSIDE the commit message, between quotes.
-if printf '%s' "$INPUT" | grep -qiE 'co-authored-by[^"]*(claude|anthropic|gemini|antigravity)|generated with \['; then
-  echo "Commit refused: it contains AI co-authorship." >&2
-  echo "Cause: the repository convention enforces a single author." >&2
-  echo "Fix: remove the Co-authored-by line and any generation mention." >&2
-  exit 2
+# Scoped to commands that actually write a message (commit or PR): a plain
+# verification command (git log, grep, echo) that MENTIONS the pattern without
+# writing it must not be blocked — recurrence observed 2026-10-26 on the
+# source repo, see hindsight.md 2026-10-02.
+if printf '%s' "$COMMAND" | grep -qE 'git[[:space:]]+commit|gh[[:space:]]+pr[[:space:]]+(create|edit)'; then
+  if printf '%s' "$INPUT" | grep -qiE 'co-authored-by[^"]*(claude|anthropic|gemini|antigravity)|generated with \['; then
+    echo "Commit refused: it contains AI co-authorship." >&2
+    echo "Cause: the repository convention enforces a single author." >&2
+    echo "Fix: remove the Co-authored-by line and any generation mention." >&2
+    exit 2
+  fi
 fi
 
 # ─── 2. Protected branches and force-push ─────────────────────────────────────
