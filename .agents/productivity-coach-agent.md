@@ -1,7 +1,7 @@
 ---
 name: productivity-coach-agent
 description: Kanban Sensei — Master of personal organization and productivity. Expert in GTD, personal Kanban, Eisenhower, MoSCoW, Pomodoro. Advises on TODO structuring, prioritization, task breakdown, cognitive ergonomics. Invoke via team-dev --productivity-coach or from an orchestrator agent (notably product-agent, ux-designer, functional-analyst for productivity apps).
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: low
 scope: cross

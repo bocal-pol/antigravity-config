@@ -1,7 +1,7 @@
 ---
 name: incident-pattern
 description: Automatic detector of recurring outages — analyzes tickets from the last 48 hours to identify network, application, or hardware patterns. Triggers an alert and suggests escalation if a cluster of incidents is detected.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 aliases: []
 argument-hint: "[optional ticket file path]"

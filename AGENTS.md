@@ -32,10 +32,10 @@ under `~/.gemini/...` vary across IDE versions. This repository follows the offi
 (`AGENTS.md`, `.agents/skills/`) as the most reliable choice, but the following elements have **no
 confirmed Antigravity equivalent** and are carried over on a best-effort basis only:
 
-- **Shell hooks** (`pre-tool-use.sh`, `stop.sh`, `skill-log.sh`, `memory.sh`) — copied as-is from
-  the source configuration, but there is no confirmed mechanism in Antigravity equivalent to a
-  pre-tool-use/session-start/stop hook system. Whether and how Antigravity would trigger these
-  scripts is unverified.
+- **Shell hooks** (`pre-tool-use.sh`, `stop.sh`, `skill-log.sh`, `memory.sh`, `audit-reminder.ps1`)
+  — copied as-is from the source configuration, but there is no confirmed mechanism in Antigravity
+  equivalent to a pre-tool-use/session-start/stop hook system. Whether and how Antigravity would
+  trigger these scripts, and whether it would honor a blocking exit code, is unverified.
 - **The orchestrator-agent concept** with a `tools:` frontmatter key (an agent file under
   `.agents/<name>.md` that declares which tools it may call) — no confirmed Antigravity equivalent
   was found. Agent files are carried over as documentation of intent, not as a verified mechanism.

@@ -1,7 +1,7 @@
 ---
 name: editorial-sketch
 description: "Generates narrative companion illustrations for an article, post, or doc: black-and-white sketch, pure white background, recurring character, a few handwritten red/orange/blue annotations, one visual metaphor per image. Auto-invoke on: article illustration, companion image, sketch, visual metaphor, illustration shot list, blog image, Notion illustration. Do not use for technical diagrams (architecture, flowchart, C4) — see the `illustrate` skill for that."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: specialized
 priority: low

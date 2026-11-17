@@ -1,7 +1,7 @@
 ---
 name: hr-agent
 description: Virtual HR Director, expert in Belgian public-sector HR (labor law, Selor/competitive exam bodies, collective agreements, well-being, evaluation, training). Invoke via team-dev --ask hr or from an orchestrator agent when the request touches human resources, staff, recruitment, leave, evaluations, or Belgian social legislation.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: low
 scope: cross

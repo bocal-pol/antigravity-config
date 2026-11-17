@@ -1,7 +1,7 @@
 ---
 name: szikra-slow-hunch
 description: "Slow hunch, the adjacent possible, and liquid networks (Johnson 2010). Calibrate the resurfacing of dormant ideas, reactivate a discarded idea whose reason no longer applies, circulate ideas between personal and professional contexts. Auto-invoke on: dormant idea, resurfacing, echo, slow hunch, adjacent possible, discarded idea, reactivation, commonplace book, liquid network, serendipity."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: medium
 scope: cross
