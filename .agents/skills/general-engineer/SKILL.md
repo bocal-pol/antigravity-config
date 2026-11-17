@@ -1,7 +1,7 @@
 ---
 name: general-engineer
 description: "Generalist fallback of the Skill Router when no specialized skill matches: multi-language code reading, generic debugging, concepts, utility scripts. Always flags the specialized skill that would fit better. Auto-invoke on a technical request with no identifiable stack."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: low
 scope: cross
@@ -52,5 +52,5 @@ Do not produce specialized responses on:
 
 ## Model
 
-`claude-sonnet-5`
+`claude-sonnet-5-5`
 </content>

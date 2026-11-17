@@ -1,7 +1,7 @@
 ---
 name: ponytail
 description: "Minimal code discipline: before writing or changing code, walk down the decision ladder (should this exist? already there? stdlib? native? dependency already present? one line? otherwise minimum), work in verifiable units, and apply measurable quality gates (CRAP < 10, duplication < 0.8, mutation testing) when tooling exists for the language. Use on any code task (write, add, refactor, fix, review, choose a dependency) and when the user says 'ponytail', 'be lazy', 'minimal solution', 'yagni', 'do less', or complains about over-engineering, boilerplate, or unnecessary dependencies. Do not use for non-code requests (prose, translation, summary)."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 argument-hint: "[lite|full|ultra]"
 type: utility

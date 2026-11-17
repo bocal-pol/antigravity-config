@@ -1,7 +1,7 @@
 ---
 name: accessibility-lead
 description: "Accessibility Lead — WCAG 2.1/2.2 AA audit (success criteria), screen reader testing, ARIA patterns, color contrast, form/keyboard-navigation accessibility, audit report. Auto-invoke on: accessibility, a11y, WCAG, ARIA, screen reader, contrast, color blindness, digital disability, digital inclusion, alt text, visible focus, keyboard navigation, skip to content."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: domain
 priority: high

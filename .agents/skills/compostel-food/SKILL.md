@@ -1,7 +1,7 @@
 ---
 name: compostel-food
 description: Resupply + regional specialties + hiking menus for a Camino de Santiago pilgrimage. Crosses the kcal/day logic (3000-3500) with gastronomic discovery. Delegates to a game-master-style skill for bivouac recipes and cultural specialties.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: framework
 priority: high
 scope: cross

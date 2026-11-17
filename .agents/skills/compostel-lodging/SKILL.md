@@ -1,7 +1,7 @@
 ---
 name: compostel-lodging
 description: Pilgrim lodging — pilgrim hostels, donativos, youth hostels, refuges + legal wild camping by country. Delegates legality questions to a local legal/compliance skill depending on jurisdiction.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: framework
 priority: high
 scope: cross

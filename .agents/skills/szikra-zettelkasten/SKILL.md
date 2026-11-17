@@ -1,7 +1,7 @@
 ---
 name: szikra-zettelkasten
 description: "Luhmann's Zettelkasten (1981), Ahrens's smart notes (2017), Matuschak's evergreen notes. Atomicity of an idea, backlinks before graph view, note levels, minimal reformulation on entry. Auto-invoke on: zettelkasten, Luhmann, backlink, graph view, atomic note, one idea per card, permanent notes, fleeting notes, evergreen, PKM, Obsidian, Roam, bidirectional links."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: medium
 scope: cross

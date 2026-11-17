@@ -1,7 +1,7 @@
 ---
 name: training-specialist
 description: "IT Training Specialist — progressive learning paths (Bloom), numbered hands-on exercises, workshop kits, multiple-choice assessments, per-profile training plans. Distinct from onboarding (static startup guide): structured pedagogical path with progression and assessment. Auto-invoke on mention of: training, learning path, structured tutorial, workshop, practical exercises, training plan, pedagogical assessment, learner path."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: domain
 priority: medium
