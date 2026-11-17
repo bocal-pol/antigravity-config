@@ -84,6 +84,7 @@ descriptive); only 3 were renamed for clarity or naming consistency with other p
 
 | Original name | New name | Notes |
 | --- | --- | --- |
+| arcade-router | game-dev-router | English name, kept its `references/routing-table.md` file |
 | croquis-editorial | editorial-sketch | English name, kept its 6 `references/` files |
 | investigue | investigate | English name |
 | no | encode-correction | The short name "no" (as in "no, do it like this") doesn't translate; renamed to describe what it does — encoding a behavior correction |
