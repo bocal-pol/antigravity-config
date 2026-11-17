@@ -15,6 +15,21 @@ be added or enriched without being a breaking change.
 
 ### Added
 
+- `.agents/scripts/audit-reminder.ps1`: ported from `claude-config`'s project `Stop` hook
+  (blocks session end and asks to run a prompt audit when the prompt surface has unaudited real
+  content changes), carried over with the same "unsupported, unconfirmed" caveat already used
+  for the other 5 hook scripts there — Antigravity has no confirmed hook lifecycle equivalent,
+  documented in `PORTING-NOTES.md` and `AGENTS.md`'s Known Limitations rather than fabricated.
+
+### Changed
+
+- Migrated from Claude 5 to Claude 5.5 (`claude-opus-5-5` / `claude-sonnet-5-5` /
+  `claude-haiku-5-5`) across 323 `model:` frontmatters (`.agents/skills/*/SKILL.md`,
+  `.agents/*.md`), `AGENTS.md`, and the `ai-product-engineer` pricing example. Mirrors the same
+  drift fixed upstream in `claude-config` (ADR 0016 revision) — new ADR 0016 revision entry added
+  here too. The generic `gemini-pro` frontmatter example in `AGENTS.md` was left untouched
+  (multi-provider example, not a Claude pin).
+
 - `unlazy`: `NOT YET:` section in `GATES.md`, symmetric to `ABANDON:` — bounds over-completion
   (unrequested work an agent would do "to be thorough") the way `ABANDON:` bounds
   under-completion (an unproven gate explicitly waived). Step 6 (final report audit) now checks
