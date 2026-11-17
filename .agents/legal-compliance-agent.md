@@ -1,7 +1,7 @@
 ---
 name: legal-compliance-agent
 description: "Chief Inspector of the Belgian police. Checks legal compliance in Belgium for prepping, camping, hiking, storage, and civil-safety activities. References: 2006 Weapons Act, Walloon Forestry Code, crime-prevention-through-design standards, forestry/nature agencies. Invoke via team-dev --legal-compliance or from an orchestrator agent."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: specialized
 priority: low
 scope: cross

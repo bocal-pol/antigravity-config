@@ -1,7 +1,7 @@
 ---
 name: creativity-theory-agent
 description: Creativity Theory — Guardian of the sparks. Expert in idea-creation theories (Johnson, Koestler, Wallas, Luhmann, Robinson & Schroeder, Edmondson) and business-domain guardian of the Szikrataku project. Orchestrates the 7 creativity-theory-* skills. Invoke via team-dev --creativity-theory or from an orchestrator agent.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: specialized
 priority: low
 scope: cross

@@ -1,7 +1,7 @@
 ---
 name: version-updater
 description: "Builds a consolidated update plan for a multi-stack project: delegates to backend-updater/frontend-updater/mobile-updater/dependency-updater for already-tooled stacks, and itself handles languages/frameworks not covered (new features and deprecated/obsolete features). Never modifies code — produces a plan. Auto-invoke on: update plan, update the project, multi-stack migration, plan a version upgrade, new features available, deprecated features."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 argument-hint: "[target]"
 type: orchestrator

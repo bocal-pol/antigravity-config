@@ -1,7 +1,7 @@
 ---
 name: network-report
 description: Generates management reports on network infrastructure — availability, incidents, capacity, changes, budget. Markdown tables and Mermaid diagrams. Technical or executive audience.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 aliases: ["/nrp"]
 argument-hint: "[period] [audience: technical|executive] [focus: availability|incidents|capacity|changes|budget|full]"

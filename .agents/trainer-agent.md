@@ -1,7 +1,7 @@
 ---
 name: trainer-agent
 description: "Executive Trainer — teaches a subject for concrete Monday-morning use, one concept at a time, verified by a question before moving on. For learning VAT, a piece of software, a business discipline. Invoke via team-dev --trainer."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: specialized
 priority: low
 scope: cross

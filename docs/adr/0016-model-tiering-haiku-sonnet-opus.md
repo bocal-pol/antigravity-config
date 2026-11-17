@@ -1,7 +1,16 @@
 # ADR 0016 — Model tiering: Haiku / Sonnet / Opus
 
 - **Status**: accepted
-- **Date**: 2026-07-13 (infra audit) — revised 2026-08-21 — **revised 2026-09-17: moved to the Claude 5 generation**
+- **Date**: 2026-07-13 (infra audit) — revised 2026-08-21 — revised 2026-09-17 (moved to the
+  Claude 5 generation) — **revised 2026-11-17: moved to the Claude 5.5 generation**
+
+> **2026-11-17 revision.** Same drift as the 2026-09-17 revision, one generation later: the 284
+> skill frontmatter files and 39 agent frontmatter files were still pinned to
+> `claude-opus-5` / `claude-sonnet-5` / `claude-haiku-4-5-20251001` while the current generation is
+> `claude-opus-5-5` / `claude-sonnet-5-5` / `claude-haiku-5-5` (found mirroring the same fix applied
+> in the source repo, `claude-config`). Migrated by script (anchored on the exact `model:` line,
+> zero false positives verified) plus prose fixes in `AGENTS.md` and a handful of skills that
+> embedded the old identifiers in worked examples or checklists.
 
 > **2026-09-17 revision.** The machine was running `claude-fable-5-1` while the 225 frontmatter
 > files were pinned to the 4.x generation (`claude-opus-4-7`, `claude-sonnet-4-6`): every subagent
@@ -20,9 +29,9 @@ Allocate models by task criticality:
 
 | Model | Use case |
 | ------ | ----------- |
-| `claude-haiku-4-5-20251001` | Mechanical, bounded tasks: lookup, verification, formatting, search, deterministic routing, git operations |
-| `claude-sonnet-5` | **Default**: domain expertise, development, any synthesis/judgment that gets persisted |
-| `claude-opus-5` | Reserved: heavy orchestration + architecture (`team-dev`, `architect`, `security-audit`) |
+| `claude-haiku-5-5` | Mechanical, bounded tasks: lookup, verification, formatting, search, deterministic routing, git operations |
+| `claude-sonnet-5-5` | **Default**: domain expertise, development, any synthesis/judgment that gets persisted |
+| `claude-opus-5-5` | Reserved: heavy orchestration + architecture (`team-dev`, `architect`, `security-audit`) |
 
 ### Arbitration rule when in doubt
 

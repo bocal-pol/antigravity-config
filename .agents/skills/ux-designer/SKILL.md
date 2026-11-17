@@ -1,7 +1,7 @@
 ---
 name: ux-designer
 description: "UX/UI/Interaction Designer — Structured wireframes (Mermaid + tables, no ASCII art), user flows, sitemap, textual high-fidelity mockups, UI token specs, micro-interactions, state matrix, integrated a11y annotations. Focus parameter: ux / ui / interaction / full (default). Delegates a11y to accessibility-lead, code to frontend-agent. Auto-invoke on: wireframe, mockup, user flow, sitemap, design screen, UI component, micro-interaction, interface animation, component states, design specs."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: domain
 priority: high

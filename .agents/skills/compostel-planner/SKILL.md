@@ -1,7 +1,7 @@
 ---
 name: compostel-planner
 description: Orchestrator for a long-distance Camino de Santiago pilgrimage project. Coordinates the compostel-* skills (route, gear, lodging, food, poi, prep) to produce a complete, coherent travel plan. Parameterizable by leg. Invoke via /compostel-planner [leg].
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: orchestrator
 priority: high
 scope: cross

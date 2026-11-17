@@ -1,7 +1,7 @@
 ---
 name: compostel-poi
 description: "Points of interest along the Camino de Santiago — religious heritage, civil heritage (fortifications, castles), notable landscapes, natural curiosities. Helps avoid missing anything between two stages. A generalized worked example illustrates the method; substitute your own leg's sites."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: framework
 priority: medium
 scope: cross

@@ -1,7 +1,7 @@
 ---
 name: compostel-route
 description: "Splits the Camino de Santiago into daily stages by leg. Produces distances, elevation gain, GPX waypoints, route crossings. A generalized worked example (from a Belgium-to-Spain route) illustrates the method; substitute your own leg's towns and itinerary."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: framework
 priority: high
 scope: cross
