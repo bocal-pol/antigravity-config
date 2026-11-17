@@ -103,3 +103,19 @@ filtering, not just translating. Applied throughout this phase:
 If a future porting pass finds a case of doubt not covered by the rules above, it should be flagged
 here rather than decided unilaterally — see the agent-hierarchy and privacy-filtering rules in
 `AGENTS.md`.
+
+## 2026-11-17 — `repomix-mcp` skill and Playwright MCP advanced capabilities
+
+- **`repomix-mcp`** (`.agents/skills/repomix-mcp/SKILL.md`) — ported in full. Its CLI path
+  (`npx repomix`) has no Antigravity-specific dependency and works as documented. Its secondary
+  path (an optional `repomix` MCP server) assumes MCP servers can be declared for an Antigravity
+  session the same way as in the source configuration — no Antigravity-specific MCP registration
+  mechanism was confirmed at port time (same open question as the rest of this port's MCP-related
+  content). Flagged inline in the skill file itself under "Unconfirmed in Antigravity" rather than
+  only here, since it is the kind of detail a reader of that specific skill needs, not just a
+  reader of this notes file.
+- **Playwright MCP advanced capabilities** section (`AGENTS.md`) — ported as documentation of
+  intent. The four tool groups (`storage`, `network`, `devtools`, `testing`) are described as
+  optional capabilities of the Playwright MCP server in general; nothing here is specific to the
+  source assistant, so no additional unconfirmed-support flag was needed beyond the general MCP
+  caveat already stated in "Known limitations".
