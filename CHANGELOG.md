@@ -20,6 +20,18 @@ be added or enriched without being a breaking change.
   content changes), carried over with the same "unsupported, unconfirmed" caveat already used
   for the other 5 hook scripts there — Antigravity has no confirmed hook lifecycle equivalent,
   documented in `PORTING-NOTES.md` and `AGENTS.md`'s Known Limitations rather than fabricated.
+- `security-agent`: three checks from the public "7 doors" checklist missing from its already
+  broader OWASP coverage — an AI/third-party key exposed in the browser bundle plus production
+  source maps, a payment webhook check (signature verification plus anti-replay/idempotency,
+  dynamic scenario `D-WEBHOOK`), and signup abuse controls (rate limiting, email verification
+  before free credits, an AI spend cap, dynamic scenario `D-SIGNUP`). Added a continuous watch
+  mode in two parts: Phase 0b is a lightweight OPEN/CLOSED gate domain agents call after each
+  implementation step, ported as-is since it depends on no hook system; Phase 0a (a `PostToolUse`
+  hook that scans each changed file) is carried over as documentation of intent only, flagged
+  unsupported/unconfirmed on this platform the same way as the other hook scripts, per the new
+  `PORTING-NOTES.md` entry. `backend-agent`, `frontend-agent`, and `mobile-agent` now call the
+  Phase 0b gate before marking any file touching auth, payment, a webhook, or a public route as
+  done.
 
 ### Changed
 
