@@ -138,3 +138,24 @@ here rather than decided unilaterally — see the agent-hierarchy and privacy-fi
   port's research (see "Why best-effort" above) describes one. Carried over as documentation of
   intent only, with an unconfirmed-support note at the top of the script itself, following the same
   treatment as the five hook scripts already in `.agents/scripts/` from phase 1.
+
+## 2026-11-17 — `security-agent` continuous watch mode (Phase 0/0a/0b)
+
+- The source repository added a two-level "watch mode" to its security auditor agent: a
+  `PostToolUse` hook that scans each modified file as it is written (Phase 0a), plus a lighter
+  `OPEN`/`CLOSED` gate that domain agents call manually between implementation steps (Phase 0b).
+  Phase 0b is a purely conversational mechanism between agents — it does not depend on the
+  harness's hook system, so it was ported as-is, with `cerbere-agent` renamed to `security-agent`
+  and `nomade-agent` to `mobile-agent` per `RENAME-MAP.md`.
+- Phase 0a depends on a `PostToolUse` tool-call hook with a blocking exit code, the same
+  Claude-Code-specific lifecycle mechanism already flagged as unconfirmed for the five scripts in
+  `.agents/scripts/` and for `audit-reminder.ps1` above. It is carried over as documentation of
+  intent only, with the same unconfirmed-support note inline in `security-agent.md` itself, rather
+  than omitted or presented as working.
+- Three new static-analysis checks ported alongside watch mode, with no platform-specific
+  concern: browser-exposed secrets in the front-end bundle and production source maps, payment
+  webhook signature/anti-replay verification, and signup anti-abuse (rate-limit, email
+  verification before free credits, per-account AI spend cap) — plus their matching dynamic test
+  scenarios (`D-WEBHOOK`, `D-SIGNUP`). Backend/frontend/mobile domain agents were updated to call
+  the Phase 0b gate after implementation steps touching auth, payment, a webhook, or a public
+  route.
