@@ -1,7 +1,7 @@
 ---
 name: team-dev
 description: Main orchestrator of the development team — delegates to specialized agents depending on the mode, or orchestrates the full project lifecycle in --full mode. Invoke via /team-dev <mode> [context].
-model: claude-opus-5
+model: claude-opus-5-5
 user-invocable: true
 type: orchestrator
 priority: high

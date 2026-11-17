@@ -1,7 +1,7 @@
 ---
 name: bon-commande
 description: Drafting purchase orders for ICT procurement — sequential reference numbering, line items, tax handling, budget code allocation, delivery timeline, payment terms. Generalized from a public-sector procurement workflow; adapt the tax rate, reference format, and payment-terms defaults to your own jurisdiction.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 aliases: ["/po"]
 argument-hint: "[supplier] [items]"

@@ -119,3 +119,22 @@ here rather than decided unilaterally — see the agent-hierarchy and privacy-fi
   optional capabilities of the Playwright MCP server in general; nothing here is specific to the
   source assistant, so no additional unconfirmed-support flag was needed beyond the general MCP
   caveat already stated in "Known limitations".
+
+## 2026-11-17 — Model migration to Claude 5.5 identifiers, and the `audit-reminder` Stop hook
+
+- **Model identifier migration**: the source repository corrected a version drift (its own ADR
+  0016, 2026-11-17 revision) where 344 frontmatter files and several root files still pinned the
+  prior model generation. The same drift existed here (284 skill files, 39 agent files, plus
+  `AGENTS.md` and `docs/adr/0016-model-tiering-haiku-sonnet-opus.md`) and was corrected the same
+  way: a `model:` frontmatter line is a plain string this port already carries as documentation of
+  intent (see "Known limitations" in `AGENTS.md` — no confirmed model-selection mechanism exists
+  for Antigravity agent files), so updating its value is a content fix, not a new unconfirmed
+  claim. No Antigravity-specific behavior is implied either way.
+- **`audit-reminder.ps1`** (new, `.agents/scripts/audit-reminder.ps1`) — ported from the source
+  repository's Claude Code `Stop` hook of the same name, which blocks session end when prompt-surface
+  files (`AGENTS.md`, `primer.md`, `hindsight.md`, `.agents/`) have an un-audited content change.
+  Whether Antigravity has any `Stop`-equivalent lifecycle hook, and whether it would honor a
+  blocking exit code the way Claude Code does, is **unconfirmed** — no source found during this
+  port's research (see "Why best-effort" above) describes one. Carried over as documentation of
+  intent only, with an unconfirmed-support note at the top of the script itself, following the same
+  treatment as the five hook scripts already in `.agents/scripts/` from phase 1.

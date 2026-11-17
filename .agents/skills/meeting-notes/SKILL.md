@@ -1,7 +1,7 @@
 ---
 name: meeting-notes
 description: "Structures the minutes of a project meeting outside the Scrum cadence: attendees, decisions made, actions assigned with a deadline. Auto-invoke on mention of: meeting minutes, meeting, meeting notes, decisions made, client meeting, DPO meeting, supplier meeting."
-model: claude-haiku-4-5-20251001
+model: claude-haiku-5-5
 user-invocable: true
 type: utility
 priority: low

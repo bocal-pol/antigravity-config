@@ -3,7 +3,7 @@ name: strix
 type: utility
 priority: medium
 scope: security
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 dependencies: []
 conflicts: []
 description: >
@@ -38,7 +38,7 @@ Invoked directly via `/strix`, or from `security-agent` (Phase 6b bis, after Sem
    ⚠️ No official native Windows note in the upstream documentation (docs.strix.ai) —
    the documented installation assumes Linux/macOS/WSL2. On a Windows machine without WSL2,
    attempt the installation then immediately fall back if it fails.
-3. **LLM key**: `STRIX_LLM` (e.g. `anthropic/claude-sonnet-5`, `openrouter/z-ai/glm-5.3`,
+3. **LLM key**: `STRIX_LLM` (e.g. `anthropic/claude-sonnet-5-5`, `openrouter/z-ai/glm-5.3`,
    or any LiteLLM-style provider) + `LLM_API_KEY` as environment variables — never
    as a command argument or written into a repository file (Secrets rule in `CLAUDE.md`).
    Additional provider possible: `LLM_API_BASE` for a local endpoint (Ollama, LM Studio).
