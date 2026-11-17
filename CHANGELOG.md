@@ -13,6 +13,61 @@ be added or enriched without being a breaking change.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-16
+
+### Added
+
+- `areopage`: decision panel skill.
+- `dpo-toolkit`: real processing register and DPIA, wired into `project-bootstrap-agent` (Phase 6b)
+  and `compliance-officer` (R-07/R-08 gaps); shared `.claude/country.md` jurisdiction convention
+  (ADR 0076).
+
+### Fixed
+
+- `create-skill`: `tools` removed from the required skill frontmatter fields.
+- `semgrep`: replaced hardcoded compose paths with a search fallback.
+- Co-authorship guard in hooks scoped to actual commit/PR writes.
+
+### Documentation
+
+- `git-workflow`: documented the empty-repo bootstrap path.
+- `laravel-developer`: documented Filament Wizard cross-step pitfalls.
+- `team-dev`: documented background sub-agent tool limitations.
+- `react-developer`: respects existing project folder conventions.
+- `hindsight`: logged frozen PATH detection at session startup.
+
+## [1.2.0] - 2026-11-12
+
+### Documentation
+
+- `isolation: worktree` documented for the four level-2 agents (backend, frontend, mobile,
+  infrastructure). The underlying git-worktree mechanism has no confirmed Antigravity equivalent —
+  see `PORTING-NOTES.md`.
+
+## [1.1.0] - 2026-11-10
+
+### Added
+
+- `skillspector`: security scanner for third-party skills, agents, and MCP servers.
+- `impeccable`: non-waivable floor rules ported from hallmark.
+- `stack-diagram`: architecture diagram skill using real technology logos.
+- `animate-lemo`: coded short-film skill (Lemo-Opuscar format).
+- ASD-STE100 (Simplified Technical English) convention documented for English technical writing.
+- Web performance checklists added across the stack and infrastructure skills.
+- Anthropic prompt library wording discipline added to `team-dev` and `cadrage`.
+
+### Fixed
+
+- Protected-branch guard scoped to `origin` only (was tripping on unrelated remotes).
+
+### Documentation
+
+- `improve-skills`: documented the unported skillspector post-fix phase (not yet ported to this
+  Antigravity format — see `PORTING-NOTES.md`).
+- `skillspector`: documented install/output/max-skills pitfalls hit in practice.
+
+## [1.0.0] - 2026-11-06 - Initial Antigravity-format port
+
 ### Added
 
 - Initial Antigravity-format port of a private AI coding-assistant configuration: `AGENTS.md`,
