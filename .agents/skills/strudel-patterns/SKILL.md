@@ -1,7 +1,7 @@
 ---
 name: strudel-patterns
 description: "Strudel Patterns — Library of snippets, mini-notation cheat sheet, safety limiter, euclidean generator, scale constraints. Essential skill for the Algorave Maestro. Auto-invoke on: strudel mini-notation, tidal pattern, strudel euclidean, strudel scale, strudel gain, strudel lpf, strudel jux, algorave snippet."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: specialized
 priority: low

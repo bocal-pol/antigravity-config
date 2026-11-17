@@ -1,7 +1,7 @@
 ---
 name: team-selector
 description: "Smart agent AND skill selector — framing interview, then produces the optimal combination to activate (Core / Optional / Excluded): team-dev orchestrator agents, directly invocable skills, and mode sequence. Reads the frontmatter of available agents + skills/SKILLS_INDEX.md + personal-agents.json for personal POs. Automatically invoked by team-dev --full and --auto. Also user-invocable to explore before launching a session. Auto-invoke on: \"which agents to activate\", \"which skills to use\", \"what team for X\", \"how to organize for X\", \"select the right agents\", \"team-dev auto\"."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: orchestrator
 priority: high

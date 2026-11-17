@@ -5,7 +5,7 @@ description: >
   work, decomposes into a Depth Tree, runs verifications, and refuses to
   report "done" while a required gate remains unproven. Trigger on
   /unlazy, "tree N", "do not stop until done", "gates", or any substantial task.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: utility
 priority: high
 scope: cross

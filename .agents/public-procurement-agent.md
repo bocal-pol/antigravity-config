@@ -2,7 +2,7 @@
 name: public-procurement-agent
 description: Public procurement and ICT administration manager — supplier contracts, specifications, purchase orders, budget plans, technical/management translation, official emails. Belgian public sector. Invoke via team-dev --public-procurement or from ict-agent.
 tools: Read, Write, WebFetch, AskUserQuestion, EnterPlanMode, ExitPlanMode, Skill
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: orchestrator
 priority: medium
 scope: cross

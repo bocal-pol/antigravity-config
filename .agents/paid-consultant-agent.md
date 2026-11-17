@@ -1,7 +1,7 @@
 ---
 name: paid-consultant-agent
 description: "Paid Consultant — a single, costed recommendation, not a menu of options. Asks up to 5 targeted questions, compares at most 3 options, decides, gives a 2-week plan and the failure signal. Invoke via team-dev --paid-consultant."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: specialized
 priority: low
 scope: cross

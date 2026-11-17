@@ -1,7 +1,7 @@
 ---
 name: szikra-bisociation
 description: "Koestler's bisociation (1964) and forced creativity techniques. Design an idea pairing, a forced connection, apply the 7 SCAMPER operators, calibrate randomness in link suggestions. Auto-invoke on: bisociation, pair of the day, forced connection, SCAMPER, random input, thinking matrix, idea association, cross two ideas, link suggestion, controlled randomness."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: medium
 scope: cross

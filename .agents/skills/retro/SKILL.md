@@ -1,7 +1,7 @@
 ---
 name: retro
 description: "Retrospective on a coding session: re-reads the session's primary sources and proposes improvements to the agent's environment (navigation pointers, automated checks, review standards, lightening the instructions file, tool economy, no-ops, information access), ranked by severity, then persists them to the observations log. Use at the end of a team-dev session, after a laborious session, or when the user says 'retro', 'retrospective', 'what got stuck', 'why did that take so long', 'improve your environment'. Also as a short, immediate capture, WITHOUT waiting for the end of the session, as soon as a user correction on the approach, a skill gap, or a repeated pattern occurs along the way."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 argument-hint: "[session or period to analyze — default: current session]"
 type: utility

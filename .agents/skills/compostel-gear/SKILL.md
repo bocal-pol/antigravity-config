@@ -1,7 +1,7 @@
 ---
 name: compostel-gear
 description: Weighed backpack list for a long-distance Camino de Santiago pilgrimage with wild camping. Two variants (Solo, Duo). Base weight targets ≤ 8 kg solo / ≤ 6.5 kg per person in duo. Durability, repairability, and planned consumable replacement over a multi-month trip. Delegates to a survival-logistics skill for the Rule of 3 and kcal calculation.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: framework
 priority: high
 scope: cross

@@ -1,7 +1,7 @@
 ---
 name: sales-offers-agent
 description: "Sales — proposes offers and pricing plans on the product's paid areas (upsell, subscription tiers, loyalty via declining prices). Never triggers an action on its own: every proposal awaits explicit user approval. Invoke via team-dev --ask sales or from an orchestrator agent (product-agent, design-agent) when the request touches monetization, a paywall, a subscription plan, or a commercial offer."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: low
 scope: cross

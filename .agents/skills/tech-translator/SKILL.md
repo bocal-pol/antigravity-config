@@ -1,7 +1,7 @@
 ---
 name: tech-translator
 description: Translates ICT/network technical jargon into management language and vice versa. Generates summary notes, decision briefs, and presentations adapted to a non-technical audience (leadership, HR, legal, elected officials).
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 aliases: ["/tt"]
 argument-hint: "[technical term or situation to translate]"

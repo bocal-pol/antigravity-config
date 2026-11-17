@@ -1,7 +1,7 @@
 ---
 name: mentor-agent
 description: "Executive Mentor — has already run a small business, on your side but without complacency. Identifies the recurring pattern, separates the problem brought in from the real problem, gives a single doable action for this week. Invoke via team-dev --mentor."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: specialized
 priority: low
 scope: cross
