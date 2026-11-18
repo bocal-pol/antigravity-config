@@ -1,7 +1,7 @@
 ---
 name: improve-skills
 description: "Review and improve existing personal SKILL.md files. Auto-invoke after /create-skill completes to refine the newly created skill. Also triggers on: \"improve my skills\", \"revise my skill\", \"optimize this skill\", \"review skill\", \"improve this skill\"."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: utility
 priority: low
@@ -51,7 +51,7 @@ For each SKILL.md, evaluate against these criteria:
 - Is `type` one of `orchestrator|framework|domain|utility|context|specialized`?
 - Is `priority` one of `high|medium|low`?
 - Is `scope` one of `backend|frontend|infra|mobile|data|security|cross`?
-- Does `model` use the full identifier (`claude-sonnet-5`, `claude-opus-5`, `claude-haiku-4-5-20251001`) — never the short version (`sonnet`, `opus`)?
+- Does `model` use the full identifier (`claude-sonnet-5-5`, `claude-opus-5-5`, `claude-haiku-5-5`) — never the short version (`sonnet`, `opus`)?
 - No `tools:` key in the frontmatter? (that key is reserved for **agents**, ignored by Claude Code in a SKILL.md). If the skill declares `allowed-tools:`, is each pre-authorized tool justified (it removes a confirmation, it isn't a restriction)? To restrict, the key is `disallowed-tools:`.
 - Do the paths in the content use `~/.claude/` (never an absolute Windows path `C:\Users\...`)?
 

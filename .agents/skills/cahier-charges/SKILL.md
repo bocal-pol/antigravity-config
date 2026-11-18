@@ -1,7 +1,7 @@
 ---
 name: cahier-charges
 description: "Drafting tender specifications (RFQ/RFP documents) for public procurement — technical specifications, award criteria, administrative conditions. Generalized from a specific jurisdiction's public procurement law; adapt the procedure thresholds and legal references to your own jurisdiction."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 aliases: ["/rfp"]
 argument-hint: "[procurement subject] [estimated amount]"

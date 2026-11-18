@@ -103,3 +103,59 @@ filtering, not just translating. Applied throughout this phase:
 If a future porting pass finds a case of doubt not covered by the rules above, it should be flagged
 here rather than decided unilaterally — see the agent-hierarchy and privacy-filtering rules in
 `AGENTS.md`.
+
+## 2026-11-17 — `repomix-mcp` skill and Playwright MCP advanced capabilities
+
+- **`repomix-mcp`** (`.agents/skills/repomix-mcp/SKILL.md`) — ported in full. Its CLI path
+  (`npx repomix`) has no Antigravity-specific dependency and works as documented. Its secondary
+  path (an optional `repomix` MCP server) assumes MCP servers can be declared for an Antigravity
+  session the same way as in the source configuration — no Antigravity-specific MCP registration
+  mechanism was confirmed at port time (same open question as the rest of this port's MCP-related
+  content). Flagged inline in the skill file itself under "Unconfirmed in Antigravity" rather than
+  only here, since it is the kind of detail a reader of that specific skill needs, not just a
+  reader of this notes file.
+- **Playwright MCP advanced capabilities** section (`AGENTS.md`) — ported as documentation of
+  intent. The four tool groups (`storage`, `network`, `devtools`, `testing`) are described as
+  optional capabilities of the Playwright MCP server in general; nothing here is specific to the
+  source assistant, so no additional unconfirmed-support flag was needed beyond the general MCP
+  caveat already stated in "Known limitations".
+
+## 2026-11-17 — Model migration to Claude 5.5 identifiers, and the `audit-reminder` Stop hook
+
+- **Model identifier migration**: the source repository corrected a version drift (its own ADR
+  0016, 2026-11-17 revision) where 344 frontmatter files and several root files still pinned the
+  prior model generation. The same drift existed here (284 skill files, 39 agent files, plus
+  `AGENTS.md` and `docs/adr/0016-model-tiering-haiku-sonnet-opus.md`) and was corrected the same
+  way: a `model:` frontmatter line is a plain string this port already carries as documentation of
+  intent (see "Known limitations" in `AGENTS.md` — no confirmed model-selection mechanism exists
+  for Antigravity agent files), so updating its value is a content fix, not a new unconfirmed
+  claim. No Antigravity-specific behavior is implied either way.
+- **`audit-reminder.ps1`** (new, `.agents/scripts/audit-reminder.ps1`) — ported from the source
+  repository's Claude Code `Stop` hook of the same name, which blocks session end when prompt-surface
+  files (`AGENTS.md`, `primer.md`, `hindsight.md`, `.agents/`) have an un-audited content change.
+  Whether Antigravity has any `Stop`-equivalent lifecycle hook, and whether it would honor a
+  blocking exit code the way Claude Code does, is **unconfirmed** — no source found during this
+  port's research (see "Why best-effort" above) describes one. Carried over as documentation of
+  intent only, with an unconfirmed-support note at the top of the script itself, following the same
+  treatment as the five hook scripts already in `.agents/scripts/` from phase 1.
+
+## 2026-11-17 — `security-agent` continuous watch mode (Phase 0/0a/0b)
+
+- The source repository added a two-level "watch mode" to its security auditor agent: a
+  `PostToolUse` hook that scans each modified file as it is written (Phase 0a), plus a lighter
+  `OPEN`/`CLOSED` gate that domain agents call manually between implementation steps (Phase 0b).
+  Phase 0b is a purely conversational mechanism between agents — it does not depend on the
+  harness's hook system, so it was ported as-is, with `cerbere-agent` renamed to `security-agent`
+  and `nomade-agent` to `mobile-agent` per `RENAME-MAP.md`.
+- Phase 0a depends on a `PostToolUse` tool-call hook with a blocking exit code, the same
+  Claude-Code-specific lifecycle mechanism already flagged as unconfirmed for the five scripts in
+  `.agents/scripts/` and for `audit-reminder.ps1` above. It is carried over as documentation of
+  intent only, with the same unconfirmed-support note inline in `security-agent.md` itself, rather
+  than omitted or presented as working.
+- Three new static-analysis checks ported alongside watch mode, with no platform-specific
+  concern: browser-exposed secrets in the front-end bundle and production source maps, payment
+  webhook signature/anti-replay verification, and signup anti-abuse (rate-limit, email
+  verification before free credits, per-account AI spend cap) — plus their matching dynamic test
+  scenarios (`D-WEBHOOK`, `D-SIGNUP`). Backend/frontend/mobile domain agents were updated to call
+  the Phase 0b gate after implementation steps touching auth, payment, a webhook, or a public
+  route.

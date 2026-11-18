@@ -1,7 +1,7 @@
 ---
 name: team-dev
 description: Main orchestrator of the development team — delegates to specialized agents depending on the mode, or orchestrates the full project lifecycle in --full mode. Invoke via /team-dev <mode> [context].
-model: claude-opus-5
+model: claude-opus-5-5
 user-invocable: true
 type: orchestrator
 priority: high
@@ -56,6 +56,7 @@ Agents live in `.agents/` and are registered by the harness as `subagent_type`: 
 /team-dev --infrastructure [description] ← infrastructure, DevOps, SRE, cloud
 /team-dev --data [description]          ← data engineering, BI, ML
 /team-dev --integration [description]   ← integration, ESB, Kafka, EDI, API Gateway
+/team-dev --cli-forge [software]         ← make a software agent-native: existing CLI (cli-hub) or built CLI harness (cli-anything)
 /team-dev --it-operations [context]     ← IT operations, ITIL support, CMDB
 /team-dev --coordination [objective]    ← agile coordination & management
 /team-dev --gamification [product]      ← Octalysis × D&D analysis + engagement mechanics roadmap
@@ -544,6 +545,7 @@ based on the stack detected by `architecture-agent` in B4:
 | Angular · React | `frontend-agent` |
 | Flutter · React Native | `mobile-agent` |
 | Integration / ESB / messaging | `integration-agent` |
+| Drive a GUI software from an agent (CLI) | `cli-forge-agent` |
 
 If the project covers multiple stacks, run them in sequence (never two agents of the same
 domain in parallel, see the agent hierarchy in `AGENTS.md`).
@@ -1272,6 +1274,13 @@ Dispatch: `Agent(subagent_type: "integration-agent", prompt: "TARGET: <value pro
 
 **Expected output**: consolidated report `integration/YYYY-MM-DD_integration-report.md` + connectors + OpenAPI schemas
 **⚠️ Fallback**: if the agent file is not found, invoke `integration-developer` or `integration-architect` directly
+
+#### `--cli-forge [target]`
+
+Dispatch: `Agent(subagent_type: "cli-forge-agent", prompt: "TARGET: <value provided — otherwise ask for the software and its source>")` — see *Dispatch convention* (Phase 2).
+
+**Expected output**: `cli-anything/<software>/FORGE-REPORT.md` + CLI harness + `skills/cli-anything-<software>/SKILL.md` (or an existing CLI installed through `cli-hub`)
+**⚠️ Fallback**: if the agent file isn't found, invoke `cli-hub` directly (look for an existing CLI), then `cli-anything` (build)
 
 #### `--it-operations [target]`
 

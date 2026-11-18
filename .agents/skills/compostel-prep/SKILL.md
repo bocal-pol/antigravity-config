@@ -1,7 +1,7 @@
 ---
 name: compostel-prep
 description: Cross-cutting preparation for a long-distance Camino de Santiago pilgrimage — physical fitness, pilgrim credential, foot health, weather/season, overall budget. Valid for the whole journey to Santiago.
-model: claude-haiku-4-5-20251001
+model: claude-haiku-5-5
 type: utility
 priority: medium
 scope: cross

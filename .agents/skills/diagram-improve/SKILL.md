@@ -1,7 +1,7 @@
 ---
 name: diagram-improve
 description: "Analyzes a diagram design repo (GitHub or local) to identify patterns, palettes and conventions to adopt, then improves the existing skills/agents that produce diagrams (illustrate, architect, graphify, threejs-3d, ux-designer, architecture-agent, design-agent). Updates the relevant ADRs and audit reports. Invoke with: 'improve our diagram skills', 'analyze this diagram repo', 'diagram-improve <url>', or a GitHub URL of a design repo."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 argument-hint: "[repo-url] [--apply] [--audit-doc <path>]"
 type: utility
@@ -65,7 +65,7 @@ For each skill to improve:
 3. Mandatory dual write: `~/.claude/skills/<name>/SKILL.md` AND the mirror repo `claude-config/skills/<name>/SKILL.md`
 
 Priority fixes (independent of the analyzed repo):
-- **graphify S1**: add full frontmatter if missing (model: claude-sonnet-5, type: utility, priority: high, scope: cross, dependencies: [], conflicts: [project-graph])
+- **graphify S1**: add full frontmatter if missing (model: claude-sonnet-5-5, type: utility, priority: high, scope: cross, dependencies: [], conflicts: [project-graph])
 - **graphify / project-graph S14**: add `conflicts: [project-graph]` in graphify and `conflicts: [graphify]` in project-graph
 
 ### Phase 5 — Docs and ADR update

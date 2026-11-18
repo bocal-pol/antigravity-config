@@ -1,7 +1,7 @@
 ---
 name: budget-plan
 description: Drafting ICT budget plans — hardware/software investments, recurring costs, maintenance, services, reserves. Multi-year projection, management presentation note, actual-vs-planned comparison. Generalized from a public-sector budgeting workflow; adapt the tax rate and procurement-threshold logic to your own jurisdiction.
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 aliases: []
 argument-hint: "[budget year] [scope: full|hardware|software|maintenance]"

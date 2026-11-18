@@ -1,7 +1,7 @@
 ---
 name: szikra-boucle-retour
 description: "Why suggestion boxes fail (Robinson & Schroeder 2004, Fairbank & Williams 2001, Frese et al. 1999). Design the acknowledgment receipt, the mandatory rejection reason, decisions made close to the ground, response delay as an indicator. Auto-invoke on: feedback loop, acknowledgment receipt, rejection reason, suggestion system, response delay, validation committee, participation, small ideas, emptying suggestion box, proposer feedback."
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 type: domain
 priority: medium
 scope: cross
