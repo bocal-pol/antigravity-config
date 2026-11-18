@@ -10,6 +10,9 @@ skill.
 
 Single entry point: see `.agents/team-dev.md`.
 
+Printable quick reference (A4, 5 pages — team-dev, ICT, standalone skills, built-in Claude Code
+tooling, Product Owner): [docs/quick-reference.html](docs/quick-reference.html).
+
 To contribute: [CONTRIBUTING.md](CONTRIBUTING.md) · Report a security issue:
 [SECURITY.md](SECURITY.md) · License: [MIT](LICENSE) · Credits: [CREDITS.md](CREDITS.md)
 
