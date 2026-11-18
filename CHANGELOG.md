@@ -13,6 +13,8 @@ be added or enriched without being a breaking change.
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-11-18
+
 ### Added
 
 - `goodnight` skill (human-only), ported best effort: overnight autonomous work under a subscription-quota
