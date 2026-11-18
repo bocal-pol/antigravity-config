@@ -628,6 +628,18 @@ Use a single consistent icon library for all icons, frontend and backend alike.
 - If no matching icon exists for a precise need, flag it and propose the closest alternative within
   the chosen library before using another.
 
+**Animation (React only)** — icons are animated with the **Animate UI** mechanism (`IconWrapper`,
+`AnimateIcon`). Its registry only ships Lucide and Hugeicons icons: each animated icon of the chosen
+library is a file written once in `shared/`, with the drawing unchanged. Outside React, the icon stays
+static.
+
+- **Hover** (`animateOnHover`) for the icon of a button, link or navigation item — wrap the whole target
+  with `<AnimateIcon animateOnHover asChild>`.
+- **Click** (`animateOnTap` + `completeOnStop`) for a confirmation or a toggle; the only trigger that
+  works on touch, pair it with hover on mobile.
+- **Controlled** (`animate`) for a state driven by code (loading, success). Avoid `animateOnView`.
+  Respect `prefers-reduced-motion`.
+
 ## Dependencies
 
 - When adding a package: verify on its registry that the targeted version is the maintained line
