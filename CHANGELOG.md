@@ -15,6 +15,12 @@ be added or enriched without being a breaking change.
 
 ### Added
 
+- "Cleanup of merged branches" convention (main instruction file, `git-workflow` skill, release
+  agent checklist): a `feature/*`/`bugfix/*`/`hotfix/*` branch merged into `develop` and then into
+  `main` is deleted (remote and local) without asking. Ancestry in `origin/develop` and
+  `origin/main` is checked first. List before delete. Use `git branch -d`, never `-D`. Never touch
+  `main`, `develop` or a branch of another author. Squash/rebase: proof through `gh pr list`, or keep it.
+
 - `.agents/scripts/audit-reminder.ps1`: ported from `claude-config`'s project `Stop` hook
   (blocks session end and asks to run a prompt audit when the prompt surface has unaudited real
   content changes), carried over with the same "unsupported, unconfirmed" caveat already used
