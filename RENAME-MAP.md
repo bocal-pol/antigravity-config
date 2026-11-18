@@ -89,3 +89,8 @@ descriptive); only 3 were renamed for clarity or naming consistency with other p
 | croquis-editorial | editorial-sketch | English name, kept its 6 `references/` files |
 | investigue | investigate | English name |
 | no | encode-correction | The short name "no" (as in "no, do it like this") doesn't translate; renamed to describe what it does — encoding a behavior correction |
+| team-dev | team-dev | Already English, kept as-is — confirmed ported with all flags translated |
+| team-selector | team-selector | Already English, kept as-is |
+| unlazy | unlazy | Already English, kept as-is |
+| areopage | areopage | Proper noun, kept as-is |
+| dpo-toolkit | dpo-toolkit | Already English, kept as-is |
