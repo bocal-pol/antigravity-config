@@ -13,6 +13,8 @@ be added or enriched without being a breaking change.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-18
+
 ### Added
 
 - `PORTING-NOTES.md`: records that the `goodnight` skill is deliberately not ported. Its quota guard
