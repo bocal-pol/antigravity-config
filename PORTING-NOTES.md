@@ -159,3 +159,13 @@ here rather than decided unilaterally — see the agent-hierarchy and privacy-fi
   scenarios (`D-WEBHOOK`, `D-SIGNUP`). Backend/frontend/mobile domain agents were updated to call
   the Phase 0b gate after implementation steps touching auth, payment, a webhook, or a public
   route.
+
+## 2026-11-18 — `goodnight` skill deliberately not ported
+
+The source repository added `goodnight`, an overnight autonomy skill whose promise is that the
+subscription usage quota is never exhausted. That promise rests on two Claude Code mechanisms: a
+`statusLine` command that receives `rate_limits`, and a `PreToolUse` hook that can deny a tool call.
+No source found during this port's research describes an equivalent for Antigravity. Without them
+the skill would give a guarantee that nothing enforces, which is worse than no skill. It is
+therefore **not ported**. It exists in `claude-config` and `bocal-kit`, where the mechanisms are
+available. Port it only after Antigravity is confirmed to offer both.
