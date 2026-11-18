@@ -36,6 +36,7 @@ only delegated to the real agent; merging it loses nothing).
 | directeur-creatif-agent | creative-director-agent | — |
 | documentation-agent (alias) | documentation-agent | Alias eliminated, gutenberg-agent's content became the canonical file under this name |
 | formateur-agent | trainer-agent | — |
+| forge-agent | cli-forge-agent | New in this pass; `cli-anything` and `cli-hub` skills keep their names |
 | frontend-agent | frontend-agent | Already clear, kept as-is |
 | gamedev-agent (alias) | — | Pure alias of arcade-agent, eliminated |
 | gutenberg-agent | documentation-agent | — |
