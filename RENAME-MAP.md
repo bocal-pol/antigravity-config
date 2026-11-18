@@ -87,6 +87,7 @@ descriptive); only 3 were renamed for clarity or naming consistency with other p
 | --- | --- | --- |
 | arcade-router | game-dev-router | English name, kept its `references/routing-table.md` file |
 | croquis-editorial | editorial-sketch | English name, kept its 6 `references/` files |
+| human | structure-humanizer | Describes what it does: it rewrites the structure of a text, not its surface (that is `no-ai-slop`) |
 | investigue | investigate | English name |
 | no | encode-correction | The short name "no" (as in "no, do it like this") doesn't translate; renamed to describe what it does — encoding a behavior correction |
 | team-dev | team-dev | Already English, kept as-is — confirmed ported with all flags translated |
