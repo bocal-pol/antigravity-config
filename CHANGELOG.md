@@ -15,6 +15,10 @@ be added or enriched without being a breaking change.
 
 ### Added
 
+- `PORTING-NOTES.md`: records that the `goodnight` skill is deliberately not ported. Its quota guard
+  needs a `statusLine` command and a `PreToolUse` deny hook, and no equivalent is confirmed for
+  Antigravity. Shipping the skill without them would promise a limit that nothing enforces.
+
 - `docs/quick-reference.html`: printable A4 quick-reference sheet (`team-dev` modes, skills, Claude
   Code basics). It lists the `--cli-forge` mode.
 
