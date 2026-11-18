@@ -2,7 +2,7 @@
 
 Structuring decisions of this ecosystem and the cross-cutting conventions applied to every project.
 
-- **75 ADRs** — 0001 to 0076 (0075 not yet ported from the source repo), one superseded (0032) and
+- **76 ADRs** — 0001 to 0077 (0075 not yet ported from the source repo), one superseded (0032) and
   one partially superseded (0048 §2 by 0062)
 - A file duplicated under number 0025 (a leftover from renaming the canary word, ADR 0065) was
   removed on 2026-10-30 — its history stays documented in the amendment of
@@ -77,6 +77,7 @@ Structuring decisions of this ecosystem and the cross-cutting conventions applie
 | [0056](0056-project-bootstrap-kit.md) | The project-bootstrap kit produced by `project-bootstrap-agent` | accepted | New projects |
 | [0070](0070-project-bootstrap-legal-compliance-track.md) | `project-bootstrap-agent`: a conditional legal-compliance track (complements 0056) | accepted | New projects |
 | [0076](0076-shared-country-md-jurisdiction.md) | `.claude/country.md`, a jurisdiction file shared between `legal-pages`/`compliance-officer`/`dpo-toolkit` | accepted | dpo-toolkit, legal-pages, project-bootstrap-agent |
+| [0077](0077-token-bucket-quota-and-business-model.md) | Token bucket quota and business model (free / freemium / paid) per application | accepted | upfront alignment, sales-offers-agent, laravel-api |
 
 ## Orchestration — agents and skills
 
