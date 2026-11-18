@@ -160,12 +160,20 @@ here rather than decided unilaterally — see the agent-hierarchy and privacy-fi
   the Phase 0b gate after implementation steps touching auth, payment, a webhook, or a public
   route.
 
-## 2026-11-18 — `goodnight` skill deliberately not ported
+## 2026-11-18 — `goodnight` skill ported best effort (supersedes the earlier "not ported" decision)
 
 The source repository added `goodnight`, an overnight autonomy skill whose promise is that the
-subscription usage quota is never exhausted. That promise rests on two Claude Code mechanisms: a
-`statusLine` command that receives `rate_limits`, and a `PreToolUse` hook that can deny a tool call.
-No source found during this port's research describes an equivalent for Antigravity. Without them
-the skill would give a guarantee that nothing enforces, which is worse than no skill. It is
-therefore **not ported**. It exists in `claude-config` and `bocal-kit`, where the mechanisms are
-available. Port it only after Antigravity is confirmed to offer both.
+subscription usage quota is never exhausted. It was first left out of this mirror, because its
+interactive guard (mode A) rests on two Claude Code mechanisms that no source describes for
+Antigravity: a `statusLine` command that receives `rate_limits`, and a `PreToolUse` hook that can deny
+a tool call. The maintainer asked for every feature to exist in all three repositories, so the skill is
+now ported, with the limits stated openly:
+
+- **Mode B (headless supervisor)** is ported in full and does not depend on Antigravity: it needs the
+  `claude` command-line tool and Node.js, and it is the only mode with a measured token budget.
+- **Mode A (interactive guard)** is ported as **documentation of intent only**. Whether Antigravity
+  can run a `statusLine` command or a hook that denies a tool call is **unconfirmed**; this repository
+  ships no `settings.json`, so nothing wires it. The skill opens with a compatibility section that
+  tells the reader to use mode B when in doubt.
+- The self-test (71 cases) checks the scripts, not the wiring: a green self-test does not prove that
+  mode A is active.

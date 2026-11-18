@@ -15,6 +15,14 @@ be added or enriched without being a breaking change.
 
 ### Added
 
+- `goodnight` skill (human-only), ported best effort: overnight autonomous work under a subscription-quota
+  ceiling. Mode B (headless supervisor, `goodnight.sh supervise`) is ported in full: it needs only the
+  `claude` command-line tool and Node.js, kills the process on a rate-limit warning, rejection, usage beyond
+  the included quota, a weighted-token budget exceeded or the deadline, and is the only mode usable on a Team
+  plan. Mode A (interactive guard: `statusLine` + `PreToolUse` hook) is ported as documentation of intent
+  only: no Antigravity equivalent is confirmed and this repository ships no `settings.json`. The skill opens
+  with a compatibility section. Self-test of 71 cases; it checks the scripts, not the wiring.
+
 - `adversarial-tester` skill: an adversarial tester that plays the clumsiest, weirdest and most inventive
   user (absurd data, silly gestures, skipped steps, bypassed rules, diverted uses). Code review to find
   the fragile assumptions, then an attack on the running application, **on a test environment only**:
@@ -34,6 +42,9 @@ be added or enriched without being a breaking change.
 
 ### Changed
 
+- `PORTING-NOTES.md`: the "`goodnight` skill deliberately not ported" decision of 1.4.0 is superseded. The
+  maintainer asked for every feature in all three repositories, so the skill is ported with its limits stated
+  openly (mode A unconfirmed here, mode B in full).
 - Main instruction file: new section "Definition of "done" for tests — loop until green". Any test run by
   an agent or a skill triggers `fix-until-green` on failure; a red test reported as a finished deliverable
   is an unfinished task.
