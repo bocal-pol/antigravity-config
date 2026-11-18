@@ -36,6 +36,7 @@ only delegated to the real agent; merging it loses nothing).
 | directeur-creatif-agent | creative-director-agent | — |
 | documentation-agent (alias) | documentation-agent | Alias eliminated, gutenberg-agent's content became the canonical file under this name |
 | formateur-agent | trainer-agent | — |
+| forge-agent | cli-forge-agent | New in this pass; `cli-anything` and `cli-hub` skills keep their names |
 | frontend-agent | frontend-agent | Already clear, kept as-is |
 | gamedev-agent (alias) | — | Pure alias of arcade-agent, eliminated |
 | gutenberg-agent | documentation-agent | — |
@@ -84,6 +85,7 @@ descriptive); only 3 were renamed for clarity or naming consistency with other p
 
 | Original name | New name | Notes |
 | --- | --- | --- |
+| arcade-router | game-dev-router | English name, kept its `references/routing-table.md` file |
 | croquis-editorial | editorial-sketch | English name, kept its 6 `references/` files |
 | investigue | investigate | English name |
 | no | encode-correction | The short name "no" (as in "no, do it like this") doesn't translate; renamed to describe what it does — encoding a behavior correction |

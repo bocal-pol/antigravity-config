@@ -32,10 +32,10 @@ under `~/.gemini/...` vary across IDE versions. This repository follows the offi
 (`AGENTS.md`, `.agents/skills/`) as the most reliable choice, but the following elements have **no
 confirmed Antigravity equivalent** and are carried over on a best-effort basis only:
 
-- **Shell hooks** (`pre-tool-use.sh`, `stop.sh`, `skill-log.sh`, `memory.sh`) — copied as-is from
-  the source configuration, but there is no confirmed mechanism in Antigravity equivalent to a
-  pre-tool-use/session-start/stop hook system. Whether and how Antigravity would trigger these
-  scripts is unverified.
+- **Shell hooks** (`pre-tool-use.sh`, `stop.sh`, `skill-log.sh`, `memory.sh`, `audit-reminder.ps1`)
+  — copied as-is from the source configuration, but there is no confirmed mechanism in Antigravity
+  equivalent to a pre-tool-use/session-start/stop hook system. Whether and how Antigravity would
+  trigger these scripts, and whether it would honor a blocking exit code, is unverified.
 - **The orchestrator-agent concept** with a `tools:` frontmatter key (an agent file under
   `.agents/<name>.md` that declares which tools it may call) — no confirmed Antigravity equivalent
   was found. Agent files are carried over as documentation of intent, not as a verified mechanism.
@@ -305,6 +305,25 @@ Application rules:
 - Auth: browser OAuth on first call. Does not work in headless/cron mode — plan a prompt-only
   fallback.
 
+## Playwright MCP — Advanced capabilities
+
+The Playwright MCP server exposes more than the navigation/click/screenshot tools already used by
+the QA automation and QA lead skills. Four extra tool groups exist, opt-in per server config.
+Enable them only when the need appears, not after an error reveals a missing tool:
+
+- **`storage`** (cookies, `localStorage`, `sessionStorage`) — mechanical check of the cookie
+  consent banner required by the "Cookie policy" section below: read state before/after clicking
+  "Reject all", confirm no non-essential cookie is set before consent.
+- **`network`** (request interception and mocking) — deterministic E2E tests that do not depend on
+  a real third-party API; useful to stabilize otherwise flaky scenarios.
+- **`devtools`** (execution trace, video) — hard evidence attached to a QA report when a failure
+  does not reproduce on the first retry.
+- **`testing`** (native verification assertions) — prefer this over a manual DOM check for a
+  simple assertion (presence, text, state).
+
+Do not enable these groups by default on a project with no current need for them: an MCP tool
+loaded without a need adds dead weight to the session context.
+
 ## Sequential Thinking
 
 Use the **Sequential Thinking MCP server** (not a skill) for any complex multi-step reasoning —
@@ -371,6 +390,31 @@ One branch = one objective.
 - Push only `feature/*` / `bugfix/*` / `hotfix/*` branches.
 - Open a Pull Request to `develop` (never merge locally).
 - **Forbidden**: `git push origin main`, `git push origin develop`, local merge into develop.
+- **Always pass `--base develop` explicitly to `gh pr create`.** Without this flag, the command
+  silently targets the repository's default branch (`main`), not `develop`. Before any
+  `gh pr merge`, check `gh pr view <n> --json baseRefName` and merge only if the resolved base
+  is `develop` (except for an explicit `develop`→`main` catch-up PR the user requested). Real
+  incident on 2026-11-17: a PR created without `--base` merged directly into `main` on three
+  repositories before it was caught, each requiring a catch-up PR.
+
+### Cleanup of merged branches
+
+A `feature/*` / `bugfix/*` / `hotfix/*` branch **merged into `develop` and then into `main`** is
+deleted automatically, remote and local, without asking again. This convention is the user's
+approval for this exact deletion.
+
+- **Condition**: the commits of the branch are in `origin/develop` **and** in `origin/main`. Check
+  after `git fetch --prune origin` with `git merge-base --is-ancestor origin/<branch> origin/main`
+  (and the same for `origin/develop`). Merged into `develop` only: keep it until it reaches
+  `main`. Not merged: never delete it.
+- **Squash or rebase**: the ancestry test fails even though the PR is merged. Check
+  `gh pr list --state merged --head <branch>`. Without proof that the content is in `main`, keep
+  the branch and say so.
+- **List first, delete after**: show the selected branches, then delete them
+  (`git push origin --delete <branch>`, `git branch -d <branch>`, never `-D`).
+- **Never** `main`, `develop`, the current branch, or a branch of another author.
+- This applies to the three repositories (`claude-config` and its two mirrors). The
+  `git-workflow` skill and the release agent apply it after a release.
 
 ### Local validation before any Pull Request (mandatory)
 

@@ -7,7 +7,7 @@ description: >
   Auto-invoke on: "new application", "I want to build an app", "new project",
   "new app", "build a tool", "I want to launch", "app idea", "start a project",
   "build a platform", "I have an app idea", "we want to build", "we'd like to make an app".
-model: claude-sonnet-5
+model: claude-sonnet-5-5
 user-invocable: true
 type: utility
 priority: high
