@@ -331,6 +331,15 @@ architecture decisions, difficult debugging, sprint planning, complexity estimat
 
 ## MCP consent — propose, remember, never re-ask after a refusal
 
+A **component** is an MCP server (`mcp__<server>__*`), a plugin, or an external CLI tool that a skill
+calls (for example Codex inside WSL, see `codex-bridge`).
+
+**Component required but missing.** A skill or agent of this repository can need a component that
+the user did not install. The assistant then **always offers to install it**, through an interactive
+confirmation. The offer gives the exact command and says what the component sends outside. If the
+user already declined it, do not ask again. Use the alternative of the skill, or say that there is
+none.
+
 Before the very first use of an `mcp__<server>__*` tool in a session, if that server has no
 recorded decision yet for this project, the assistant must **stop and ask** via an interactive
 confirmation (never a silent call) — not a shell hook, which can only allow or block without asking

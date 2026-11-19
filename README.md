@@ -137,6 +137,18 @@ uncertainty around exact Antigravity paths and behavior.
 Open the project in Antigravity and run a simple request through `team-dev --auto` (or your IDE's
 equivalent invocation) to confirm the configuration loads.
 
+### 4. Optional: Codex delegation (untested under Antigravity)
+
+The skills `codex-delegate`, `codex-review`, `codex-explore` and `transfer` give small tasks and
+second opinions to Codex (OpenAI). Codex runs inside WSL. You need a shell that can run `wsl.exe`
+and Node.js 18 or later. Codex is optional: without it, the assistant does the work itself.
+
+**Installing Codex is not enough. You must log in once with a ChatGPT account.** Turn on the
+device-code login in ChatGPT first (*Settings → Security*), or the login fails. Type the code on the
+web page, not in the terminal. Never copy `auth.json` from Windows to WSL. The six steps are in
+[`.agents/skills/codex-bridge/SKILL.md`](.agents/skills/codex-bridge/SKILL.md). The code that you give
+to Codex goes to OpenAI: each send needs your consent.
+
 ---
 
 ## Conventions — where they are written

@@ -869,6 +869,12 @@ AskUserQuestion to invoke `version-updater` to produce the update plan.
 `reports/version-updater/YYYY-MM-DD_version-updater.md` if the plan is requested
 **⚠️ Fallback**: display `⚠️ version-checker unavailable`
 
+#### Note — Codex delegation skills (no `team-dev` mode)
+
+Five standalone skills delegate small tasks to Codex (OpenAI, inside WSL): `codex-bridge`,
+`codex-delegate`, `codex-review`, `codex-explore` and `transfer`. `team-dev` has no mode for them.
+Invoke them directly. They are untested under Antigravity. See `PORTING-NOTES.md`.
+
 #### `--qa-lead [target]`
 
 Dispatch: `Agent(subagent_type: "qa-lead-agent", prompt: "TARGET: <value provided — otherwise "current project">")` — see *Dispatch convention* (Phase 2).

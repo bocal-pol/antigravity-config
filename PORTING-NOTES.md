@@ -177,3 +177,35 @@ now ported, with the limits stated openly:
   tells the reader to use mode B when in doubt.
 - The self-test (71 cases) checks the scripts, not the wiring: a green self-test does not prove that
   mode A is active.
+
+## 2026-11-19 — Codex delegation skills (best effort, untested)
+
+Five skills are ported: `codex-bridge` (with `scripts/codex-bridge.mjs` and `codex-bridge.sh`),
+`codex-delegate`, `codex-review`, `codex-explore` and `transfer`. They give small tasks and second
+opinions to Codex (OpenAI). The maintainer decided to include them in this mirror.
+
+- **Untested under Antigravity.** Nobody ran them in this IDE. The only self-check is
+  `bash .agents/skills/codex-bridge/scripts/codex-bridge.sh selftest` (17 cases, no network, no login).
+- **Requirements.** A shell that can run `wsl.exe` and Node.js 18 or later. Codex runs inside WSL
+  (Ubuntu). The user must log in once with a ChatGPT account. The six login steps are in
+  `codex-bridge/SKILL.md` and in the README.
+- **Why the Codex plugin of the host IDE is not used.** The source uses no plugin. A plugin starts the
+  Windows build of Codex, and its sandbox blocks file reads and writes (observed). The bridge calls
+  the Codex CLI inside WSL through `wsl.exe`.
+- **Not ported: the hook-based pieces.** The `goodnight` option that hands the plan to Codex when the
+  quota stops the assistant needs the quota guard of `goodnight` mode A. That guard needs a
+  `statusLine` command and a `PreToolUse` hook. Antigravity has no confirmed equivalent. The consent
+  hook of the source has the same problem. The consent rule is written as text in `AGENTS.md`
+  ("MCP consent"), and the assistant must apply it by itself.
+- **Not ported: the `team-dev --codex` mode.** It has no confirmed Antigravity equivalent. `team-dev`
+  only has a short note that lists the five skills. The skills are invoked directly.
+- **Paths.** The source keeps the quota state in `~/.claude/codex/state.json`, work files in
+  `.claude/tmp/` and worktrees in `.claude/worktrees/`. Here: `~/.agents/codex/state.json`,
+  `.agents/tmp/` and `.agents/worktrees/` (new `.gitignore` line). `~/.agents/` is a neutral choice:
+  no home-folder convention is confirmed for Antigravity.
+- **Fallback to `code-reviewer`, `fix-until-green`.** `codex-review` and `codex-delegate` call these
+  mirror skills. Both exist here.
+- The consent rule for components (a component that a skill needs but the user did not install is
+  always offered for installation, unless declined) is added to `AGENTS.md`, section "MCP consent".
+  The source also requires an install script entry for each component. This mirror has no install
+  script, so the install steps are inside `codex-bridge/SKILL.md`.
