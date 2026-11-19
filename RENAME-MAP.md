@@ -95,3 +95,15 @@ descriptive); only 3 were renamed for clarity or naming consistency with other p
 | unlazy | unlazy | Already English, kept as-is |
 | areopage | areopage | Proper noun, kept as-is |
 | dpo-toolkit | dpo-toolkit | Already English, kept as-is |
+
+## Skills added after the first pass — Codex delegation
+
+Five skills added on 2026-11-19. All kept their source names (already English, already descriptive).
+
+| Original name | New name | Notes |
+| --- | --- | --- |
+| codex-bridge | codex-bridge | Already English, kept as-is. Its scripts are in `scripts/` |
+| codex-delegate | codex-delegate | Already English, kept as-is |
+| codex-review | codex-review | Already English, kept as-is. Modes translated: `rapport` → `report`, `second-avis` → `second-opinion`, `docs` → `docs` |
+| codex-explore | codex-explore | Already English, kept as-is |
+| transfer | transfer | Already English, kept as-is |

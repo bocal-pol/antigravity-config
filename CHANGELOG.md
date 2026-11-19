@@ -15,6 +15,13 @@ be added or enriched without being a breaking change.
 
 ### Added
 
+- Codex delegation, best effort and untested under Antigravity: skills `codex-bridge` (bridge with
+  scripts, consent before each send, fallback to the assistant when the quota is exhausted, isolated
+  worktree), `codex-delegate`, `codex-review`, `codex-explore` and `transfer`. Codex runs inside WSL.
+  The ChatGPT login is explained in full in `codex-bridge/SKILL.md` and in the README. The rule
+  "component required but missing is always offered for installation" is added to "MCP consent".
+  Not ported: the `goodnight` hand-off option and the `team-dev --codex` mode (see
+  `PORTING-NOTES.md`).
 - ADR 0077 and the "Business model and access rights" rule: token bucket quota (X tokens, one token
   returned every Y/X) instead of a fixed window, free / freemium / paid levels per application, an
   administration backend whose location is asked from the user. Seventh axis of upfront alignment;

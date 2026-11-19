@@ -33,6 +33,9 @@ AGENTS.local.md
 # ─── Ephemeral working files (gates, scratch) ──────────────────────────────────
 .agents/tmp/
 
+# ─── Isolated worktrees created by the Codex bridge ────────────────────────────
+.agents/worktrees/
+
 # ─── IDE locks and runtime state ───────────────────────────────────────────────
 ide/
 
