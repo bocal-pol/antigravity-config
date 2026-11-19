@@ -42,3 +42,17 @@ already handled in the agents-porting pass on this same branch lineage.
 - `brag`'s 17MB of bundled binary music/SFX assets were NOT ported (out of scope for a text-porting
   pass, and too large) — only its SKILL.md, slim.md, and references/*.md were copied (verbatim,
   already in English, no personal content found).
+
+## Codex delegation skills (5 skills: codex-bridge, codex-delegate, codex-review, codex-explore, transfer)
+
+- The source text says the Windows sandbox of Codex is blocked "on this workstation". That phrase
+  refers to one machine. It became "observed" (a plain statement without a machine reference). The
+  claim itself stays: it explains why Codex runs inside WSL. Worth a second look: it is a field
+  observation by the maintainer, not a documented fact about Codex.
+- The source mentions a past review where a "P1" finding was downgraded. It is kept as a generic
+  example, without the project name.
+- The source skills name the original assistant in several places ("Claude", `~/.claude/...`,
+  `AskUserQuestion`). These became "the assistant" and mirror paths. The `model:` frontmatter line is
+  kept, as for every other skill in this mirror.
+- No email, no personal path, no machine identifier was found in the five skills or in the script.
+  Paths are generic (`~/.agents/...`, `.agents/...`). The `/mnt/c/...` strings are placeholders.
