@@ -56,3 +56,8 @@ already handled in the agents-porting pass on this same branch lineage.
   kept, as for every other skill in this mirror.
 - No email, no personal path, no machine identifier was found in the five skills or in the script.
   Paths are generic (`~/.agents/...`, `.agents/...`). The `/mnt/c/...` strings are placeholders.
+
+### Animated icons rule (frontend-agent, root rules)
+The source rule names the private monorepo's shared icon module by its package scope and mentions its design
+system package by name. The mirror says "shared icon module" and "design system" instead, and shows the import
+path as a placeholder.

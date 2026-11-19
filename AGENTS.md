@@ -638,16 +638,21 @@ Use a single consistent icon library for all icons, frontend and backend alike.
   the chosen library before using another.
 
 **Animation (React only)** — icons are animated with the **Animate UI** mechanism (`IconWrapper`,
-`AnimateIcon`). Its registry only ships Lucide and Hugeicons icons: each animated icon of the chosen
-library is a file written once in `shared/`, with the drawing unchanged. Outside React, the icon stays
-static.
+`AnimateIcon`). Its registry only ships Lucide and Hugeicons icons. A shared module (`shared/animated-icons`)
+supplies the animated icons of the chosen library: one file per icon, drawing unchanged, same names as the
+library. In React, import the icons from that module. Outside React, the icon stays static.
 
-- **Hover** (`animateOnHover`) for the icon of a button, link or navigation item — wrap the whole target
-  with `<AnimateIcon animateOnHover asChild>`.
-- **Click** (`animateOnTap` + `completeOnStop`) for a confirmation or a toggle; the only trigger that
-  works on touch, pair it with hover on mobile.
-- **Controlled** (`animate`) for a state driven by code (loading, success). Avoid `animateOnView`.
-  Respect `prefers-reduced-motion`.
+- **Do not write an icon file by hand.** Add the icon name to the module's `scripts/icon-list.json`, then run
+  its `scripts/generate.mjs`. Put a hand-tuned, piece-by-piece animation in `scripts/presets.mjs`.
+- **Triggers**: the buttons of the design system that carry an icon animate it already. For a native link or
+  button that contains an icon, wrap it with the `InteractiveIcons` helper that the module exports (it can be
+  disabled). A purely informative icon stays static.
+- **Hover** (`animateOnHover`) for the icon of a button, link or navigation item. The whole target triggers
+  the animation, not only the icon.
+- **Click** (`animateOnTap` + `completeOnStop`) for a confirmation or a toggle. It is the only trigger that
+  works on touch: pair it with hover on mobile.
+- **Controlled** (`animate`) for a state driven by code (loading, success). Never animate continuously.
+  Avoid `animateOnView`. Respect `prefers-reduced-motion`.
 
 ## Dependencies
 
