@@ -629,24 +629,27 @@ Before any design or UI generation work, classify the surface according to one o
 The mode influences density, animation, palette and typography decisions. A single project can
 cover several modes (e.g. a Persuade landing + an Operate app).
 
-## Icons — global convention, all projects
+## Icons — global convention for all projects
 
-Use a single consistent icon library for all icons, frontend and backend alike.
+Use the **Lucide** library (ISC license) for all icons, frontend and backend alike: `lucide-react`,
+`lucide-angular`, `lucide-static` (SVG), or the official package of the platform (Filament, Flutter).
 
-- Never introduce a second icon library without explicit agreement.
-- If no matching icon exists for a precise need, flag it and propose the closest alternative within
-  the chosen library before using another.
+- Never introduce Solar, Heroicons, Material Icons, or another library without explicit agreement.
+  Solar is dropped: its license is GPL-3.0, which does not allow distributing the code.
+- If no Lucide icon exists for a precise need, flag it and propose the closest Lucide alternative
+  before using something else.
 
-**Animation (React only)** — icons are animated with the **Animate UI** mechanism (`IconWrapper`,
-`AnimateIcon`). Its registry only ships Lucide and Hugeicons icons. A shared module (`shared/animated-icons`)
-supplies the animated icons of the chosen library: one file per icon, drawing unchanged, same names as the
-library. In React, import the icons from that module. Outside React, the icon stays static.
+**Animation (React only)** — Lucide icons are animated with the **Animate UI** mechanism (`IconWrapper`,
+`AnimateIcon`). A shared module (`shared/animated-icons`) supplies them: one file per icon, named
+`<LucideName>Icon` (`CircleCheckIcon`, `HouseIcon`...). It uses the animated version drawn by Animate UI when
+one exists. Otherwise it generates one with the identical Lucide drawing. In React, import the icons from that
+module instead of `lucide-react`. Outside React, the icon stays static.
 
-- **Do not write an icon file by hand.** Add the icon name to the module's `scripts/icon-list.json`, then run
-  its `scripts/generate.mjs`. Put a hand-tuned, piece-by-piece animation in `scripts/presets.mjs`.
+- **Do not write an icon file by hand.** Add a line to the module's `scripts/solar-to-lucide.json`, then run
+  its `scripts/sync-lucide.mjs`. Set a family animation in `scripts/presets.mjs`.
 - **Triggers**: the buttons of the design system that carry an icon animate it already. For a native link or
   button that contains an icon, wrap it with the `InteractiveIcons` helper that the module exports (it can be
-  disabled). A purely informative icon stays static.
+  disabled). A purely informative icon stays static. Do not wrap a router `NavLink`: its `className` is a function.
 - **Hover** (`animateOnHover`) for the icon of a button, link or navigation item. The whole target triggers
   the animation, not only the icon.
 - **Click** (`animateOnTap` + `completeOnStop`) for a confirmation or a toggle. It is the only trigger that
