@@ -227,7 +227,7 @@ Log the result in context memory (don't execute MCP commands automatically — p
 
 Before any design work, check for the existence of context files at the project root:
 
-- **`DESIGN.md`** — OKLCH palette, typography stack, component kit, visual constraints, icon library (Solar)
+- **`DESIGN.md`** — OKLCH palette, typography stack, component kit, visual constraints, icon library (Lucide)
 - **`PRODUCT.md`** — target audience, success metrics, brand voice, accessibility floor
 
 If missing: create them in Phase 2b before continuing. Populate them from the product artifacts read in Phase 3 + the Phase 1 brief answers.
