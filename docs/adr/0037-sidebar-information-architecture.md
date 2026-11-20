@@ -28,7 +28,7 @@ Recommended slot order:
 ### 3. Highlighting the lead feature
 
 Two combined mechanisms:
-- **Position-1 item** with distinct visual treatment (accent color, a slightly larger Solar icon, a persistent selected background)
+- **Position-1 item** with distinct visual treatment (accent color, a slightly larger Lucide icon, a persistent selected background)
 - **A pinned quick-action button** fixed at the top (`+ New request`, `+ Create a user`...) — the operator can act without navigating first
 
 ## Positive consequences
