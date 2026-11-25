@@ -115,3 +115,4 @@ One skill added on 2026-11-25. It kept its source name (already English, already
 | Original name | New name | Notes |
 | --- | --- | --- |
 | ux-details-audit | ux-details-audit | Already English, kept as-is. Its script is in `scripts/` |
+| instagram-* (13 skills) | instagram-* | Instagram pack. Already English, kept as-is. Scripts and data files sit in each skill folder |
