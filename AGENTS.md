@@ -431,6 +431,16 @@ CI should never be the first place a locally-catchable problem is discovered. Ru
 validation script, test suite, or lint available for the repository before pushing a branch meant
 for a PR — never push "to see if CI passes."
 
+- **Run every check BEFORE the first push.** CI and review confirm a result. They do not find the
+  defects. For a visual change, run the full matrix locally: each themed app × light and dark × 390
+  and 1440 px × each screen the change touches. A regression test is valid only if you saw it fail
+  without the fix.
+- **One branch and one pull request for each work item.** Group the corrections. Each PR starts the
+  whole CI again.
+- **Bump a submodule pointer one time**, at the end of the batch, not after each PR of the submodule.
+- **If the CI does not start**, read the job annotation (`gh api repos/<repo>/check-runs/<id>/annotations`)
+  before you conclude.
+
 ### Commit message convention (strict Conventional Commits)
 
 - The assistant is never a co-author.
