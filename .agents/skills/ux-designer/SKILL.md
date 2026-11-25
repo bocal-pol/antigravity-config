@@ -323,6 +323,10 @@ Choose the tier based on required complexity. Each tier is additive: start with 
 | **Corporate** | 200-400ms | ease-out standard | B2B, dashboard, admin |
 | **Energetic** | 100-250ms | sharp ease-out | Sports, gaming, alerts |
 
+### Animation budget (set before specifying)
+
+A screen carries **one** highlight animation at a time. The others stay short state transitions (hover, focus, success). Write this budget at the top of the specs and check each row of the table below against it: two animations that start together are sequenced or removed. When unsure, specify less: the user asks for more more easily than for removal.
+
 ### Guiding principles (LottieFiles Motion Design)
 
 - **3 layers of motion**: primary (main action) + secondary (physical reaction) + ambient (constant breathing)

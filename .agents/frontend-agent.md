@@ -222,6 +222,10 @@ Before declaring the deliverable complete, check the browser-side security check
 - [ ] Production build with no publicly exposed sourcemap (`GENERATE_SOURCEMAP=false` or
   equivalent), unless explicit debug access is intended
 
+Before declaring a visual screen or component done, **look at it**: run the app, open the page with Playwright (`browser_navigate`, then `browser_take_screenshot` at 1440 and 390 px), and compare the capture with the intent the user described. A "done" based on code alone was contradicted three times by the user testing in a browser ("I still see the notebook", "the two animations are mixed"). Attach the capture to the report. Skippable for a change with no rendering (pure logic, API).
+
+**Animation budget**: one highlight animation per screen at a time, unless asked otherwise. Animation serves a state (hover, success, loading) and stays short. Several simultaneous animations read as noise. When unsure about the dose, propose less and let the user ask for more.
+
 For any component touching auth, an AI/payment call, or the admin area: invoke `security-agent`
 in watch mode (`security-agent.md` Phase 0b, reduced scope limited to this step's files) before
 moving to the next step. Optional for a purely visual change with no network call or sensitive

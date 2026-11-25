@@ -116,4 +116,6 @@ One skill added on 2026-11-25. It kept its source name (already English, already
 | --- | --- | --- |
 | ux-details-audit | ux-details-audit | Already English, kept as-is. Its script is in `scripts/` |
 | skill-gap-analyzer | skill-gap-analyzer | New. Already English, kept as-is. Its script is in `scripts/` |
+| ship-chain | ship-chain | New. Already English, kept as-is |
+| sync-claude-home | sync-claude-home | New. Already English, kept as-is |
 | instagram-* (13 skills) | instagram-* | Instagram pack. Already English, kept as-is. Scripts and data files sit in each skill folder |
