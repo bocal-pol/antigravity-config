@@ -209,3 +209,9 @@ opinions to Codex (OpenAI). The maintainer decided to include them in this mirro
   always offered for installation, unless declined) is added to `AGENTS.md`, section "MCP consent".
   The source also requires an install script entry for each component. This mirror has no install
   script, so the install steps are inside `codex-bridge/SKILL.md`.
+
+## 2026-11-25 — `skill-gap-analyzer` skill (best effort, untested in Antigravity)
+
+The skill reads Claude Code transcripts in `~/.claude/projects/*/*.jsonl`. Antigravity has no known
+equivalent store, so the script finds nothing there. The skill is useful only on a machine that also
+runs Claude Code. The report goes to Notion through the `notion` MCP server, registered by `install.ps1`.
