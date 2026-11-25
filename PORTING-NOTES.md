@@ -209,3 +209,15 @@ opinions to Codex (OpenAI). The maintainer decided to include them in this mirro
   always offered for installation, unless declined) is added to `AGENTS.md`, section "MCP consent".
   The source also requires an install script entry for each component. This mirror has no install
   script, so the install steps are inside `codex-bridge/SKILL.md`.
+
+## 2026-11-25 — `ship-chain`, `sync-claude-home`, entry gate and hooks (best effort, untested in Antigravity)
+
+- `ship-chain` and `sync-claude-home` are ported as skills. They assume `git`, `gh` and, for `sync-claude-home`, a `~/.claude` checkout: useful only on a machine that also runs Claude Code.
+- `team-dev --ship`, the `upfront-alignment` entry gate and the `--full` B1/B1.5/D7 rows are ported as text.
+- NOT ported: the `friction-nudge.sh` hook (`UserPromptSubmit`) and the `audit-reminder.ps1` change. Antigravity has no confirmed equivalent for shell hooks.
+
+## 2026-11-25 — `skill-gap-analyzer` skill (best effort, untested in Antigravity)
+
+The skill reads Claude Code transcripts in `~/.claude/projects/*/*.jsonl`. Antigravity has no known
+equivalent store, so the script finds nothing there. The skill is useful only on a machine that also
+runs Claude Code. The report goes to Notion through the `notion` MCP server, registered by `install.ps1`.
