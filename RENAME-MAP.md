@@ -107,3 +107,11 @@ Five skills added on 2026-11-19. All kept their source names (already English, a
 | codex-review | codex-review | Already English, kept as-is. Modes translated: `rapport` → `report`, `second-avis` → `second-opinion`, `docs` → `docs` |
 | codex-explore | codex-explore | Already English, kept as-is |
 | transfer | transfer | Already English, kept as-is |
+
+## Skill added after the Codex pass — UX details audit
+
+One skill added on 2026-11-25. It kept its source name (already English, already descriptive).
+
+| Original name | New name | Notes |
+| --- | --- | --- |
+| ux-details-audit | ux-details-audit | Already English, kept as-is. Its script is in `scripts/` |

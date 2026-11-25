@@ -29,6 +29,7 @@ be added or enriched without being a breaking change.
 
 ### Added
 
+- **`ux-details-audit` skill**: hunt for small UX defects on the real rendering. A script (`scripts/ux-details.js`) measures the DOM with Playwright at 1440 and 390 px (edges, touch targets, orphans, split units, cut icons, emoji icons, overflows, fields without a label). Each candidate is then judged on a screenshot and ranked. Wired into `design-agent` (step 4h-3) and into Phase 10 of `ux-designer`. Method inspired by Stageshow (benjitaylor/skills, MIT), credited in `CREDITS.md`.
 - Codex delegation, best effort and untested under Antigravity: skills `codex-bridge` (bridge with
   scripts, consent before each send, fallback to the assistant when the quota is exhausted, isolated
   worktree), `codex-delegate`, `codex-review`, `codex-explore` and `transfer`. Codex runs inside WSL.
