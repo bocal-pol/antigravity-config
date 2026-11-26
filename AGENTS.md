@@ -440,6 +440,12 @@ for a PR — never push "to see if CI passes."
 - **Bump a submodule pointer one time**, at the end of the batch, not after each PR of the submodule.
 - **If the CI does not start**, read the job annotation (`gh api repos/<repo>/check-runs/<id>/annotations`)
   before you conclude.
+- **If the quota or billing is used up** (not a content problem), stop. Do not start another GitHub
+  run on purpose: no new push, no new PR, no extra merge that starts the push workflow on `main` or
+  `develop`. Wait until the user confirms that the quota is available again. This applies even if
+  each local check stays clean. A push or a merge also uses the quota of other workflows started by
+  the same paths (for example, a secret scan of the whole repository). Group the remaining work into
+  a minimum number of pushes and merges. Do not run several separate PR → merge → promotion cycles.
 
 ### Commit message convention (strict Conventional Commits)
 
