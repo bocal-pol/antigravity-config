@@ -67,6 +67,12 @@ Grep/Read the project to list everything that "feels AI-made", with the exact lo
 - "Made with…" badges, generated mentions, forgotten Lorem ipsum
 - Missing legal pages, missing favicon/OG, dead links
 
+Call the Skill tool with `slop-score` (argument `before`, list of the UI files found above) to get
+the score out of 100, the recognized slop flavor and the detail for each pattern. Attach this table
+to the diagnosis. It is the reference for the end-of-work measure (Phase A4).
+**⚠️ Fallback**: if `slop-score` is not available → qualitative diagnosis only, and report
+"score not measured".
+
 Summarize the diagnostic and wait for user validation before Phase A3 — never start
 fixing without this green light.
 
@@ -116,6 +122,9 @@ modified files are the deliverable):
 
 - Final `DESIGN.md`.
 - List of files created/modified, one line each.
+- Slop score before → after: call the Skill tool with `slop-score` (argument `after`) on the same
+  files. Patterns kept on purpose are justified in `DESIGN.md`.
+  **⚠️ Fallback**: if not available → write "end score not measured".
 - Before/after of the main copy (headline, subheading, buttons).
 - "TO DO BY A HUMAN" list: photos to take, reviews/figures to obtain, domain name to
   buy/connect, tool/host settings that can't be scripted, missing legal information
